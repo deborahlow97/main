@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.LevelOfFriendship;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -137,6 +138,32 @@ public class ParserUtil {
     public static Optional<Email> parseEmail(Optional<String> email) throws IllegalValueException {
         requireNonNull(email);
         return email.isPresent() ? Optional.of(parseEmail(email.get())) : Optional.empty();
+    }
+
+    /**
+     * Parses a {@code String levelOfFriendship} into a {@code LevelOfFriendship}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws IllegalValueException if the given {@code levelOfFriendship} is invalid.
+     */
+    public static LevelOfFriendship parseLevelOfFriendship(String levelOfFriendship) throws IllegalValueException {
+        requireNonNull(levelOfFriendship);
+        String trimmedLevelOfFriendship = levelOfFriendship.trim();
+        if (!LevelOfFriendship.isValidLevelOfFriendship(trimmedLevelOfFriendship)) {
+            throw new IllegalValueException(LevelOfFriendship.MESSAGE_LEVEL_OF_FRIENDSHIP_CONSTRAINTS);
+        }
+        return new LevelOfFriendship(trimmedLevelOfFriendship);
+    }
+
+    /**
+     * Parses a {@code Optional<String> name} into an {@code Optional<Name>} if {@code name} is present.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     */
+    public static Optional<LevelOfFriendship> parseLevelOfFriendship(Optional<String> levelOfFriendship)
+            throws IllegalValueException {
+        requireNonNull(levelOfFriendship);
+        return levelOfFriendship.isPresent() ? Optional.of(parseLevelOfFriendship(levelOfFriendship.get()))
+                : Optional.empty();
     }
 
     /**
