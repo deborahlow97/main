@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
+import java.util.logging.Level;
 
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
@@ -19,18 +20,21 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final Address address;
+    private final LevelOfFriendship levelOfFriendship;
 
     private final UniqueTagList tags;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, LevelOfFriendship levelOfFriendship,
+                  Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, levelOfFriendship, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.levelOfFriendship = levelOfFriendship;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
     }
@@ -50,6 +54,8 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    public LevelOfFriendship getLevelOfFriendship() { return levelOfFriendship; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -73,7 +79,8 @@ public class Person {
         return otherPerson.getName().equals(this.getName())
                 && otherPerson.getPhone().equals(this.getPhone())
                 && otherPerson.getEmail().equals(this.getEmail())
-                && otherPerson.getAddress().equals(this.getAddress());
+                && otherPerson.getAddress().equals(this.getAddress())
+                && otherPerson.getLevelOfFriendship().equals(this.getAddress());
     }
 
     @Override
@@ -92,6 +99,8 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Level Of Friendship: ")
+                .append(getLevelOfFriendship())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
