@@ -5,7 +5,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
-import java.util.logging.Level;
 
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
