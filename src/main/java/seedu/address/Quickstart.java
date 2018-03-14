@@ -41,7 +41,7 @@ public class Quickstart {
             JacksonFactory.getDefaultInstance();
 
     /** Global instance of the HTTP transport. */
-    private static HttpTransport HTTP_TRANSPORT;
+    private static HttpTransport httpTransport;
 
     /** Global instance of the scopes required by this quickstart.
      *
@@ -53,7 +53,7 @@ public class Quickstart {
 
     static {
         try {
-            HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+            httpTransport = GoogleNetHttpTransport.newTrustedTransport();
             dataStoreFactory = new FileDataStoreFactory(DATA_STORE_DIR);
         } catch (Throwable t) {
             t.printStackTrace();
@@ -76,7 +76,7 @@ public class Quickstart {
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow =
                 new GoogleAuthorizationCodeFlow.Builder(
-                        HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
+                        httpTransport, JSON_FACTORY, clientSecrets, SCOPES)
                         .setDataStoreFactory(dataStoreFactory)
                         .setAccessType("offline")
                         .build();
@@ -96,7 +96,7 @@ public class Quickstart {
         getCalendarService() throws IOException {
         Credential credential = authorize();
         return new com.google.api.services.calendar.Calendar.Builder(
-                HTTP_TRANSPORT, JSON_FACTORY, credential)
+                httpTransport, JSON_FACTORY, credential)
                 .setApplicationName(APPLICATION_NAME)
                 .build();
     }
