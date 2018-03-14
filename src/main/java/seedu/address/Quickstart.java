@@ -21,7 +21,9 @@ import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Events;
 
-
+/**
+ * The sample Quickstart.
+ */
 public class Quickstart {
     /** Application name. */
     private static final String APPLICATION_NAME =
@@ -32,7 +34,7 @@ public class Quickstart {
             System.getProperty("user.home"), ".credentials/calendar-java-quickstart");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
-    private static FileDataStoreFactory DATA_STORE_FACTORY;
+    private static FileDataStoreFactory dataStoreFactory;
 
     /** Global instance of the JSON factory. */
     private static final JsonFactory JSON_FACTORY =
@@ -52,7 +54,7 @@ public class Quickstart {
     static {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-            DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
+            dataStoreFactory = new FileDataStoreFactory(DATA_STORE_DIR);
         } catch (Throwable t) {
             t.printStackTrace();
             System.exit(1);
@@ -75,7 +77,7 @@ public class Quickstart {
         GoogleAuthorizationCodeFlow flow =
                 new GoogleAuthorizationCodeFlow.Builder(
                         HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-                        .setDataStoreFactory(DATA_STORE_FACTORY)
+                        .setDataStoreFactory(dataStoreFactory)
                         .setAccessType("offline")
                         .build();
         Credential credential = new AuthorizationCodeInstalledApp(
