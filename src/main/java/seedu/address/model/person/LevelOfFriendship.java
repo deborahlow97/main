@@ -9,8 +9,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class LevelOfFriendship {
 
-
-
     public static final String MESSAGE_LEVEL_OF_FRIENDSHIP_CONSTRAINTS =
             "Level of Friendship should only be a numerical integer value between 1 to 10";
     public static final int MINIMUM_LEVEL_OF_FRIENDSHIP = 1;
@@ -29,7 +27,6 @@ public class LevelOfFriendship {
         checkArgument(isValidLevelOfFriendship(levelOfFriendship), MESSAGE_LEVEL_OF_FRIENDSHIP_CONSTRAINTS);
         this.value = levelOfFriendship;
     }
-
 
     /**
      * Returns if a given string is a valid person level of friendship.
