@@ -3,7 +3,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 import com.joestelmach.natty.Parser;
-import com.google.common.
+
 /**
  * Represents a Person's birthday in CollegeZone.
  * Guarantees: immutable; is valid as declared in {@link #isValidBirthday(String)}
@@ -28,6 +28,7 @@ public class Birthday {
      */
     public Birthday(String birthday) {
         requireNonNull(birthday);
+        String properDateFormat = dateParser(birthday);
         checkArgument(isValidBirthday(birthday), MESSAGE_BIRTHDAY_CONSTRAINTS);
         this.value = birthday;
     }
