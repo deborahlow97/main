@@ -29,7 +29,7 @@ public class LevelOfFriendship {
     }
 
     /**
-     * Returns if a given string is a valid person level of friendship.
+     * Returns true if a given string is a valid person level of friendship.
      */
     public static boolean isValidLevelOfFriendship(String test) {
 
@@ -37,7 +37,7 @@ public class LevelOfFriendship {
     }
 
     /**
-     * Returns if a given string is an integer and within range of level of friendship.
+     * Returns true if a given string is an integer and within range of level of friendship.
      */
     private static boolean isAnIntegerWithinRange(String test) {
         levelOfFriendshipInIntegerForm = Integer.parseInt(test);

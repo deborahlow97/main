@@ -7,7 +7,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Person's CCAs in CollegeZone.
  * Guarantees: immutable; is valid as declared in {@link #isValidCcaName(String)}
  */
-public class CCA {
+public class Cca {
 
     public static final String MESSAGE_CCA_CONSTRAINTS = "CCAs should be alphanumeric";
     public static final String CCA_VALIDATION_REGEX = "\\p{Alnum}+";
@@ -19,7 +19,7 @@ public class CCA {
      *
      * @param ccaName A valid CCA.
      */
-    public CCA(String ccaName) {
+    public Cca(String ccaName) {
         requireNonNull(ccaName);
         checkArgument(isValidCcaName(ccaName), MESSAGE_CCA_CONSTRAINTS);
         this.ccaName = ccaName;

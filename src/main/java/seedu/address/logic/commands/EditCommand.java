@@ -22,7 +22,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Birthday;
-import seedu.address.model.person.CCA;
+import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -116,11 +116,11 @@ public class EditCommand extends UndoableCommand {
         LevelOfFriendship updatedLevelOfFriendship = editPersonDescriptor.getLevelOfFriendship()
                 .orElse(personToEdit.getLevelOfFriendship());
         UnitNumber updatedUnitNumber = editPersonDescriptor.getUnitNumber().orElse(personToEdit.getUnitNumber());
-        Set<CCA> updatedCCAs = editPersonDescriptor.getCCAs().orElse(personToEdit.getCCAs());
+        Set<CCA> updatedCcas = editPersonDescriptor.getCcas().orElse(personToEdit.getCcas());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedBirthday, updatedLevelOfFriendship, updatedUnitNumber,
-                updatedCCAs, updatedTags);
+                updatedCcas, updatedTags);
     }
 
     @Override
@@ -152,7 +152,7 @@ public class EditCommand extends UndoableCommand {
         private Birthday birthday;
         private LevelOfFriendship levelOfFriendship;
         private UnitNumber unitNumber;
-        private Set<CCA> ccas;
+        private Set<Cca> ccas;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -164,10 +164,10 @@ public class EditCommand extends UndoableCommand {
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
             setPhone(toCopy.phone);
-            setEmail(toCopy.birthday);
+            setBirthday(toCopy.birthday);
             setLevelOfFriendship(toCopy.levelOfFriendship);
-            setAddress(toCopy.unitNumber);
-            setCCAs(toCopy.ccas);
+            setUnitNumber(toCopy.unitNumber);
+            setCcas(toCopy.ccas);
             setTags(toCopy.tags);
         }
 
@@ -176,7 +176,7 @@ public class EditCommand extends UndoableCommand {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(this.name, this.phone, this.birthday,
-                    this.address, this.levelOfFriendship, this.tags);
+                    this.levelOfFriendship, this.unitNumber, this.ccas, this.tags);
         }
 
         public void setName(Name name) {
@@ -195,28 +195,36 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(phone);
         }
 
-        public void setEmail(Email email) {
-            this.email = email;
+        public void setBirthday(Birthday birthday) {
+            this.birthday = birthday;
         }
 
-        public Optional<Email> getEmail() {
-            return Optional.ofNullable(email);
+        public Optional<Birthday> getBirthday() {
+            return Optional.ofNullable(birthday);
         }
-
-        public void setAddress(Address address) {
-            this.address = address;
-        }
-
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
-        }
-
+        
         public void setLevelOfFriendship(LevelOfFriendship levelOfFriendship) {
             this.levelOfFriendship = levelOfFriendship;
         }
 
         public Optional<LevelOfFriendship> getLevelOfFriendship() {
             return Optional.ofNullable(levelOfFriendship);
+        }
+
+        public void setUnitNumber(UnitNumber unitNumber) {
+            this.unitNumber = unitNumber;
+        }
+
+        public Optional<UnitNumber> getUnitNumber() {
+            return Optional.ofNullable(unitNumber);
+        }
+
+        public void setCca(Cca ccas) {
+            this.ccas = (ccas != null) ? new HashSet<>(ccas) : null;
+        }
+
+        public Optional<Cca> getCca() {
+            return Optional.ofNullable(ccas);
         }
 
         /**
@@ -253,9 +261,10 @@ public class EditCommand extends UndoableCommand {
 
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
-                    && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
+                    && getBirthday().equals(e.getBirthday())
+                    && getUnitNumber().equals(e.getUnitNumber())
                     && getLevelOfFriendship().equals(e.getLevelOfFriendship())
+                    && getCcas().equals(e.getCcas())
                     && getTags().equals(e.getTags());
         }
     }
