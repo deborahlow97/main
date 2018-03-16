@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <person>
     <name>Hans Muster</name>
-    <phone>9482424</phone>
-    <email>hans@example</email>
-    <address>4th street</address>
+    <phone>94821424</phone>
+    <birthday>hans@example</birthday>
+    <levelOfFriendship>8</levelOfFriendship>
+    <unitNumber>#01-111</unitNumber>
+    <ccas>shooting</ccas>
     <tagged>friends</tagged>
 </person>

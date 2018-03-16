@@ -2,7 +2,9 @@
 <!-- Person with missing name field -->
 <person>
     <phone>9482424</phone>
-    <email>hans@example</email>
-    <address>4th street</address>
+    <birthday>06-06-1998</birthday>
+    <levelOfFriendship>4</levelOfFriendship>
+    <unitNumber>#2-970</unitNumber>
+    <ccas>art club</ccas>
     <tagged>friends</tagged>
 </person>

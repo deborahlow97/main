@@ -13,18 +13,20 @@ import javafx.scene.layout.Region;
 public class PersonCardHandle extends NodeHandle<Node> {
     private static final String ID_FIELD_ID = "#id";
     private static final String NAME_FIELD_ID = "#name";
-    private static final String ADDRESS_FIELD_ID = "#address";
     private static final String PHONE_FIELD_ID = "#phone";
-    private static final String EMAIL_FIELD_ID = "#email";
+    private static final String BIRTHDAY_FIELD_ID = "#birthday";
     private static final String LEVEL_OF_FRIENDSHIP_FIELD_ID = "#levelOfFriendship";
+    private static final String UNIT_NUMBER_FIELD_ID = "#unitNumber";
+    private static final String CCAS_FIELD_ID = "#ccas";
     private static final String TAGS_FIELD_ID = "#tags";
 
     private final Label idLabel;
     private final Label nameLabel;
-    private final Label addressLabel;
     private final Label phoneLabel;
-    private final Label emailLabel;
+    private final Label birthdayLabel;
     private final Label levelOfFriendshipLabel;
+    private final Label unitNumberLabel;
+    private final List<Label> ccaLabels;
     private final List<Label> tagLabels;
 
     public PersonCardHandle(Node cardNode) {
@@ -32,10 +34,17 @@ public class PersonCardHandle extends NodeHandle<Node> {
 
         this.idLabel = getChildNode(ID_FIELD_ID);
         this.nameLabel = getChildNode(NAME_FIELD_ID);
-        this.addressLabel = getChildNode(ADDRESS_FIELD_ID);
+        this.birthdayLabel = getChildNode(BIRTHDAY_FIELD_ID);
         this.phoneLabel = getChildNode(PHONE_FIELD_ID);
-        this.emailLabel = getChildNode(EMAIL_FIELD_ID);
         this.levelOfFriendshipLabel = getChildNode(LEVEL_OF_FRIENDSHIP_FIELD_ID);
+        this.unitNumberLabel = getChildNode(UNIT_NUMBER_FIELD_ID);
+
+        Region ccasContainer = getChildNode(CCAS_FIELD_ID);
+        this.ccaLabels = ccasContainer
+                .getChildrenUnmodifiable()
+                .stream()
+                .map(Label.class::cast)
+                .collect(Collectors.toList());
 
         Region tagsContainer = getChildNode(TAGS_FIELD_ID);
         this.tagLabels = tagsContainer
@@ -53,19 +62,35 @@ public class PersonCardHandle extends NodeHandle<Node> {
         return nameLabel.getText();
     }
 
-    public String getAddress() {
-        return addressLabel.getText();
-    }
-
     public String getPhone() {
         return phoneLabel.getText();
     }
 
-    public String getEmail() {
-        return emailLabel.getText();
+    public String getBirthday() {
+        return birthdayLabel.getText();
     }
 
     public String getLevelOfFriendship() { return levelOfFriendshipLabel.getText(); }
+
+    public String getUnitNumber() {
+        return unitNumberLabel.getText();
+    }
+
+    public List<String> getCcas() {
+        return ccaLabels
+                .stream()
+                .map(Label::getText)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getCcaStyleClasses(String cca) {
+        return ccaLabels
+                .stream()
+                .filter(label -> label.getText().equals(cca))
+                .map(Label::getStyleClass)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("No such cca."));
+    }
 
     public List<String> getTags() {
         return tagLabels

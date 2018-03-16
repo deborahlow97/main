@@ -3,8 +3,9 @@
 <person>
     <name>Hans Muster</name>
     <phone>9482asf424</phone>
-    <email>hans@example</email>
-    <address>4th street</address>
+    <birthday>13-may-1997</birthday>
     <levelOfFriendship>10</levelOfFriendship>
+    <unitNumber>#3-33</unitNumber>
+    <ccas>E-gaming</ccas>
     <tagged>friends</tagged>
 </person>
