@@ -33,7 +33,7 @@ public class AddCommand extends UndoableCommand {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
-            + PREFIX_BIRTHDAY + "24 MAY 1997 "
+            + PREFIX_BIRTHDAY + "24/MAY/1997 "
             + PREFIX_LEVEL_OF_FRIENDSHIP + "9 "
             + PREFIX_UNIT_NUMBER + "#02-25 "
             + PREFIX_CCA + "Badminton "

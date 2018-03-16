@@ -194,7 +194,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         // AddressBook#addPerson(Person)
         command = PersonUtil.getAddCommand(IDA) + " " + PREFIX_CCA.getPrefix() + "badminton";
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
-        
+
         /* Case: missing name -> rejected */
         command = AddCommand.COMMAND_WORD + PHONE_DESC_AMY + BIRTHDAY_DESC_AMY + LEVEL_OF_FRIENDSHIP_DESC_AMY
                 + UNIT_NUMBER_DESC_AMY;
