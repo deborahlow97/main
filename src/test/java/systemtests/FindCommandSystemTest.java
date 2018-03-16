@@ -19,6 +19,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
+import seedu.address.model.person.Cca;
 import seedu.address.model.tag.Tag;
 
 public class FindCommandSystemTest extends AddressBookSystemTest {
@@ -116,13 +117,24 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find address of person in address book -> 0 persons found */
-        command = FindCommand.COMMAND_WORD + " " + DANIEL.getAddress().value;
+        /* Case: find birthday of person in address book -> 0 persons found */
+        command = FindCommand.COMMAND_WORD + " " + DANIEL.getBirthday().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find email of person in address book -> 0 persons found */
-        command = FindCommand.COMMAND_WORD + " " + DANIEL.getEmail().value;
+        /* Case: find level of friendship of person in address book -> 0 persons found */
+        command = FindCommand.COMMAND_WORD + " " + DANIEL.getLevelOfFriendship().value;
+        assertCommandSuccess(command, expectedModel);
+        assertSelectedCardUnchanged();
+
+        /* Case: find unit number of person in address book -> 0 persons found */
+        command = FindCommand.COMMAND_WORD + " " + DANIEL.getUnitNumber().value;
+        assertCommandSuccess(command, expectedModel);
+        assertSelectedCardUnchanged();
+
+        /* Case: find ccas of person in address book -> 0 persons found */
+        List<Cca> ccas = new ArrayList<>(DANIEL.getCcas());
+        command = FindCommand.COMMAND_WORD + " " + ccas.get(0).ccaName;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
