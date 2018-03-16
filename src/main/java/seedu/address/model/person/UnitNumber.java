@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a RC4 resident Unit Number in CollegeZone.
- * Guarantees: immutable; is valid as declared in {@link #isUnitNumber(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidUnitNumber(String)}
  */
 public class UnitNumber {
 
@@ -30,21 +30,7 @@ public class UnitNumber {
      */
     public static boolean isValidUnitNumber(String test) {
 
-        return test.matches(UNIT_NUMBER_VALIDATION_REGEX) && isAnIntegerWithinRange(test);
-    }
-
-    /**
-     * Returns if a given string is an integer and within range of level of friendship.
-     */
-    private static boolean isAnIntegerWithinRange(String test) {
-        levelOfFriendshipInIntegerForm = Integer.parseInt(test);
-        if (levelOfFriendshipInIntegerForm >= MINIMUM_LEVEL_OF_FRIENDSHIP
-                && levelOfFriendshipInIntegerForm <= MAXIMUM_LEVEL_OF_FRIENDSHIP) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return test.matches(UNIT_NUMBER_VALIDATION_REGEX);
     }
 
     @Override
@@ -55,8 +41,8 @@ public class UnitNumber {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Email // instanceof handles nulls
-                && this.value.equals(((Email) other).value)); // state check
+                || (other instanceof UnitNumber // instanceof handles nulls
+                && this.value.equals(((UnitNumber) other).value)); // state check
     }
 
     @Override

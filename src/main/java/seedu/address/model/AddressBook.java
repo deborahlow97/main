@@ -15,6 +15,8 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.person.Cca;
+import seedu.address.model.person.UniqueCcaList;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 
@@ -25,6 +27,7 @@ import seedu.address.model.tag.UniqueTagList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
+    private final UniqueCcaList ccas;
     private final UniqueTagList tags;
 
     /*
@@ -36,13 +39,14 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
+        ccas = new UniqueCcaList();
         tags = new UniqueTagList();
     }
 
     public AddressBook() {}
 
     /**
-     * Creates an AddressBook using the Persons and Tags in the {@code toBeCopied}
+     * Creates an AddressBook using the Persons, Ccas and Tags in the {@code toBeCopied}
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
@@ -54,6 +58,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void setPersons(List<Person> persons) throws DuplicatePersonException {
         this.persons.setPersons(persons);
     }
+
+    public void setCcas(Set<Cca> ccas) { this.ccas.setCcas(ccas); }
 
     public void setTags(Set<Tag> tags) {
         this.tags.setTags(tags);

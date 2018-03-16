@@ -116,7 +116,7 @@ public class EditCommand extends UndoableCommand {
         LevelOfFriendship updatedLevelOfFriendship = editPersonDescriptor.getLevelOfFriendship()
                 .orElse(personToEdit.getLevelOfFriendship());
         UnitNumber updatedUnitNumber = editPersonDescriptor.getUnitNumber().orElse(personToEdit.getUnitNumber());
-        Set<CCA> updatedCcas = editPersonDescriptor.getCcas().orElse(personToEdit.getCcas());
+        Set<Cca> updatedCcas = editPersonDescriptor.getCcas().orElse(personToEdit.getCcas());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedBirthday, updatedLevelOfFriendship, updatedUnitNumber,
@@ -219,12 +219,22 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(unitNumber);
         }
 
-        public void setCca(Cca ccas) {
+
+        /**
+         * Sets {@code ccas} to this object's {@code ccas}.
+         * A defensive copy of {@code ccas} is used internally.
+         */
+        public void setCcas(Set<Cca> ccas) {
             this.ccas = (ccas != null) ? new HashSet<>(ccas) : null;
         }
 
-        public Optional<Cca> getCca() {
-            return Optional.ofNullable(ccas);
+        /**
+         * Returns an unmodifiable cca set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code ccas} is null.
+         */
+        public Optional<Set<Cca>> getCcas() {
+            return (ccas != null) ? Optional.of(Collections.unmodifiableSet(ccas)) : Optional.empty();
         }
 
         /**
@@ -262,8 +272,8 @@ public class EditCommand extends UndoableCommand {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getBirthday().equals(e.getBirthday())
-                    && getUnitNumber().equals(e.getUnitNumber())
                     && getLevelOfFriendship().equals(e.getLevelOfFriendship())
+                    && getUnitNumber().equals(e.getUnitNumber())
                     && getCcas().equals(e.getCcas())
                     && getTags().equals(e.getTags());
         }

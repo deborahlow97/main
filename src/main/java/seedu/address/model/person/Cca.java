@@ -26,7 +26,7 @@ public class Cca {
     }
 
     /**
-     * Returns true if a given string is a valid tag name.
+     * Returns true if a given string is a valid CCA name.
      */
     public static boolean isValidCcaName(String test) {
         return test.matches(CCA_VALIDATION_REGEX);
@@ -35,20 +35,20 @@ public class Cca {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof CCA // instanceof handles nulls
-                && this.ccaName.equals(((Tag) other).cca)); // state check
+                || (other instanceof Cca // instanceof handles nulls
+                && this.ccaName.equals(((Cca) other).ccaName)); // state check
     }
 
     @Override
     public int hashCode() {
-        return cca.hashCode();
+        return ccaName.hashCode();
     }
 
     /**
      * Format state as text for viewing.
      */
     public String toString() {
-        return '[' + cca + ']';
+        return '[' + ccaName + ']';
     }
 
 }
