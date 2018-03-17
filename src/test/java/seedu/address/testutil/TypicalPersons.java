@@ -29,17 +29,17 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 public class TypicalPersons {
 
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
-            .withPhone("85355255").withBirthday("1-1-1991").withLevelOfFriendship("1")
+            .withPhone("85355255").withBirthday("01-01-1991").withLevelOfFriendship("1")
             .withUnitNumber("#12-21").withCcas("hockey").withTags("friends").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
-            .withPhone("98765432").withBirthday("19-1-1998").withLevelOfFriendship("2")
+            .withPhone("98765432").withBirthday("19-01-1998").withLevelOfFriendship("2")
             .withUnitNumber("#4-44").withCcas("Skating", "swimming").withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withBirthday("30-2-1994").withLevelOfFriendship("7").withUnitNumber("#2-69").build();
+            .withBirthday("30-02-1994").withLevelOfFriendship("7").withUnitNumber("#2-69").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withBirthday("30/3/1994").withLevelOfFriendship("4").withUnitNumber("#03-033").build();
+            .withBirthday("30/03/1994").withLevelOfFriendship("4").withUnitNumber("#03-033").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withBirthday("9-9-1999").withLevelOfFriendship("10").withUnitNumber("#9-434").build();
+            .withBirthday("09-09-1999").withLevelOfFriendship("10").withUnitNumber("#9-434").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withBirthday("10/10/1990").withLevelOfFriendship("3").withUnitNumber("#10-10").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
@@ -47,13 +47,13 @@ public class TypicalPersons {
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withBirthday("15/5/1995").withLevelOfFriendship("1").withUnitNumber("#6-66")
+            .withBirthday("15/05/1995").withLevelOfFriendship("1").withUnitNumber("#6-66")
             .withCcas("floorball").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withBirthday("14/4/1994").withLevelOfFriendship("3").withUnitNumber("#4-44")
+            .withBirthday("14/04/1994").withLevelOfFriendship("3").withUnitNumber("#4-44")
             .withTags("girlfriend").build();
     public static final Person JAKE = new PersonBuilder().withName("Jake Black").withPhone("8482131")
-            .withBirthday("14/4/1995").withLevelOfFriendship("3").withUnitNumber("#4-45")
+            .withBirthday("14/04/1995").withLevelOfFriendship("3").withUnitNumber("#4-45")
             .withTags("boyfriend").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}

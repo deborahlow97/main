@@ -3,14 +3,14 @@
     <persons>
         <name>Hans Muster</name>
         <phone isPrivate="false">9482424</phone>
-        <birthday isPrivate="false">28/3/1995</birthday>
+        <birthday isPrivate="false">28/03/1995</birthday>
         <levelOfFriendship isPrivate="false">1</levelOfFriendship>
         <unitNumber isPrivate="false">#8-209</unitNumber>
     </persons>
     <persons>
         <name>Ruth Mueller</name>
         <phone isPrivate="false">87249245</phone>
-        <birthday isPrivate="false">9-2-2009</birthday>
+        <birthday isPrivate="false">09-02-2009</birthday>
         <levelOfFriendship isPrivate="false">2</levelOfFriendship>
         <unitNumber isPrivate="false">#01-10</unitNumber>
     </persons>
@@ -52,14 +52,14 @@
     <persons>
         <name>Stefan Meier</name>
         <phone isPrivate="false">8482424</phone>
-        <birthday isPrivate="false">5-5-1995</birthday>
+        <birthday isPrivate="false">05-05-1995</birthday>
         <levelOfFriendship isPrivate="false">8</levelOfFriendship>
         <unitNumber isPrivate="false">#12-88</unitNumber>
     </persons>
     <persons>
         <name>Martin Mueller</name>
         <phone isPrivate="false">8482131</phone>
-        <birthday isPrivate="false">6/6/1996</birthday>
+        <birthday isPrivate="false">06/06/1996</birthday>
         <levelOfFriendship isPrivate="false">9</levelOfFriendship>
         <unitNumber isPrivate="false">#15-400</unitNumber>
     </persons>
