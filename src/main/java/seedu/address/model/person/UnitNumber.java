@@ -11,7 +11,7 @@ public class UnitNumber {
 
     public static final String MESSAGE_UNIT_NUMBER_CONSTRAINTS =
             "Unit Number should contain #, - and alphanumerical values.";
-    public static final String UNIT_NUMBER_VALIDATION_REGEX = "[a-zA-Z\\d\\s\\-\\,\\#\\.\\+]+";
+    public static final String UNIT_NUMBER_VALIDATION_REGEX = "[^\\s].*";
     public final String value;
 
     /**
