@@ -5,7 +5,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.person.Cca;
 import seedu.address.model.person.Person;
+
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -40,7 +44,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label unitNumber;
     @FXML
-    private Label cca;
+    private Label ccas;
     @FXML
     private FlowPane tags;
 
@@ -53,7 +57,8 @@ public class PersonCard extends UiPart<Region> {
         birthday.setText(person.getBirthday().value);
         levelOfFriendship.setText(person.getLevelOfFriendship().value);
         unitNumber.setText(person.getUnitNumber().value);
-        cca.setText(person.getCcas().toString());
+        ccas.setText(getCcasInString(person.getCcas()));
+
         initTags(person);
     }
 
@@ -75,6 +80,15 @@ public class PersonCard extends UiPart<Region> {
             tagLabel.getStyleClass().add(getTagColorStyleFor(tag.tagName));
             tags.getChildren().add(tagLabel);
         });
+    }
+
+    private String getCcasInString(Set<Cca> ccas) {
+        String CcasValue = "";
+        Iterator iterator = ccas.iterator();
+        while(iterator.hasNext()) {
+            CcasValue = CcasValue + iterator.next().toString() + " ";
+        }
+        return CcasValue;
     }
 
     @Override
