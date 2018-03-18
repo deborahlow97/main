@@ -52,8 +52,9 @@ public class Person {
         return birthday;
     }
 
-
-    public LevelOfFriendship getLevelOfFriendship() { return levelOfFriendship; }
+    public LevelOfFriendship getLevelOfFriendship() {
+        return levelOfFriendship;
+    }
 
     public UnitNumber getUnitNumber() {
         return unitNumber;
@@ -62,7 +63,9 @@ public class Person {
      * Returns an immutable cca set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Cca> getCcas() { return Collections.unmodifiableSet(ccas.toSet()); }
+    public Set<Cca> getCcas() {
+        return Collections.unmodifiableSet(ccas.toSet());
+    }
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
