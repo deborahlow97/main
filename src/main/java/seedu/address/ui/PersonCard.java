@@ -56,7 +56,8 @@ public class PersonCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         birthday.setText(person.getBirthday().value);
-        levelOfFriendship.setText(person.getLevelOfFriendship().value);
+        //levelOfFriendship.setText(person.getLevelOfFriendship().value);
+        levelOfFriendship.setText(changeLevelOfFriendshipToHeart(person.getLevelOfFriendship().value));
         unitNumber.setText(person.getUnitNumber().value);
         ccas.setText(getCcasInString(person.getCcas()));
 
@@ -92,6 +93,18 @@ public class PersonCard extends UiPart<Region> {
         return ccasValue;
     }
 
+    /**
+     * Takes in @param value representing the level of friendship value
+     * @return a number of hearts string.
+     */
+    private String changeLevelOfFriendshipToHeart(String value) {
+        int intValue = Integer.parseInt(value);
+        String heartString = "";
+        for (int i = 0; i < intValue; i++) {
+            heartString = heartString + '\u2665' + " ";
+        }
+        return heartString;
+    }
     @Override
     public boolean equals(Object other) {
         // short circuit if same object
