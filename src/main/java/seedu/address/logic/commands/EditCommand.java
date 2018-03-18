@@ -202,7 +202,7 @@ public class EditCommand extends UndoableCommand {
         public Optional<Birthday> getBirthday() {
             return Optional.ofNullable(birthday);
         }
-        
+
         public void setLevelOfFriendship(LevelOfFriendship levelOfFriendship) {
             this.levelOfFriendship = levelOfFriendship;
         }
