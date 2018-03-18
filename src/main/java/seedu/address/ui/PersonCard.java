@@ -1,5 +1,8 @@
 package seedu.address.ui;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -8,8 +11,6 @@ import javafx.scene.layout.Region;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.Person;
 
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -83,12 +84,12 @@ public class PersonCard extends UiPart<Region> {
     }
 
     private String getCcasInString(Set<Cca> ccas) {
-        String CcasValue = "";
+        String ccasValue = "";
         Iterator iterator = ccas.iterator();
-        while(iterator.hasNext()) {
-            CcasValue = CcasValue + iterator.next().toString() + " ";
+        while (iterator.hasNext()) {
+            ccasValue = ccasValue + iterator.next().toString() + " ";
         }
-        return CcasValue;
+        return ccasValue;
     }
 
     @Override
