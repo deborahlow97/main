@@ -11,9 +11,9 @@ public class LevelOfFriendship {
 
     public static final String MESSAGE_LEVEL_OF_FRIENDSHIP_CONSTRAINTS =
             "Level of Friendship should only be a numerical integer value between 1 to 10";
-    public static final int MINIMUM_LEVEL_OF_FRIENDSHIP = 1;
-    public static final int MAXIMUM_LEVEL_OF_FRIENDSHIP = 10;
     public static final String LEVEL_OF_FRIENDSHIP_VALIDATION_REGEX = "[0-9]+";
+    private static final int MINIMUM_LEVEL_OF_FRIENDSHIP = 1;
+    private static final int MAXIMUM_LEVEL_OF_FRIENDSHIP = 10;
     private static int levelOfFriendshipInIntegerForm;
     public final String value;
 

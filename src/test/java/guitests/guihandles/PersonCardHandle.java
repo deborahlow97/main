@@ -70,7 +70,9 @@ public class PersonCardHandle extends NodeHandle<Node> {
         return birthdayLabel.getText();
     }
 
-    public String getLevelOfFriendship() { return levelOfFriendshipLabel.getText(); }
+    public String getLevelOfFriendship() {
+        return levelOfFriendshipLabel.getText();
+    }
 
     public String getUnitNumber() {
         return unitNumberLabel.getText();

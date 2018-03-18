@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Birthday;
-import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;

@@ -58,7 +58,7 @@ public class CommandTestUtil {
             + VALID_LEVEL_OF_FRIENDSHIP_BOB;
     public static final String UNIT_NUMBER_DESC_AMY = " " + PREFIX_UNIT_NUMBER + VALID_UNIT_NUMBER_AMY;
     public static final String UNIT_NUMBER_DESC_BOB = " " + PREFIX_UNIT_NUMBER + VALID_UNIT_NUMBER_BOB;
-    public static final String CCA_DESC_DANCE= " " + PREFIX_CCA + VALID_CCA_DANCE;
+    public static final String CCA_DESC_DANCE = " " + PREFIX_CCA + VALID_CCA_DANCE;
     public static final String CCA_DESC_BADMINTON = " " + PREFIX_CCA + VALID_CCA_BADMINTON;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
