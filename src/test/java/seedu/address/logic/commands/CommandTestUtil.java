@@ -66,7 +66,7 @@ public class CommandTestUtil {
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY
-            + "&24/05/1997"; // '&' not allowed in birthdays
+            + "24/15/1997"; // month is invalid
     public static final String INVALID_LEVEL_OF_FRIENDSHIP_DESC = " " + PREFIX_LEVEL_OF_FRIENDSHIP
             + "1Oa"; // alphabets are not allowed in levelOfFriendships
     public static final String INVALID_UNIT_NUMBER_DESC = " "

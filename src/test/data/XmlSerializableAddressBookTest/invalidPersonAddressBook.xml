@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addressbook>
-    <!-- Person with invalid email field -->
+    <!-- Person with invalid birthday field -->
     <persons>
         <name>Hans Muster</name>
         <phone isPrivate="false">9482424</phone>
-        <birthday isPrivate="false">01-03-1991</birthday>
+        <birthday isPrivate="false">01-13-1991</birthday>
         <levelOfFriendship isPrivate="false">4</levelOfFriendship>
         <unitNumber isPrivate="false">#9-55</unitNumber>
     </persons>

@@ -78,6 +78,19 @@ public class PersonCardHandle extends NodeHandle<Node> {
         return unitNumberLabel.getText();
     }
 
+    /**
+     * Takes in @param value representing the level of friendship value
+     * @return a number of hearts string.
+     */
+    public String changeLevelOfFriendshipToHeart(String value) {
+        int intValue = Integer.parseInt(value);
+        String heartString = "";
+        for (int i = 0; i < intValue; i++) {
+            heartString = heartString + '\u2665' + " ";
+        }
+        return heartString;
+    }
+
     public List<String> getCcas() {
         return ccaLabels
                 .stream()

@@ -97,7 +97,7 @@ public class PersonCard extends UiPart<Region> {
      * Takes in @param value representing the level of friendship value
      * @return a number of hearts string.
      */
-    private String changeLevelOfFriendshipToHeart(String value) {
+    public static String changeLevelOfFriendshipToHeart(String value) {
         int intValue = Integer.parseInt(value);
         String heartString = "";
         for (int i = 0; i < intValue; i++) {

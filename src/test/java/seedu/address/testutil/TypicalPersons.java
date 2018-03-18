@@ -35,9 +35,9 @@ public class TypicalPersons {
             .withPhone("98765432").withBirthday("19-01-1998").withLevelOfFriendship("2")
             .withUnitNumber("#4-44").withCcas("Skating", "swimming").withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withBirthday("30-02-1994").withLevelOfFriendship("7").withUnitNumber("#2-69").build();
+            .withBirthday("12-02-1994").withLevelOfFriendship("7").withUnitNumber("#2-69").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withBirthday("30/03/1994").withLevelOfFriendship("4").withUnitNumber("#03-033").build();
+            .withBirthday("12/03/1994").withLevelOfFriendship("4").withUnitNumber("#03-033").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
             .withBirthday("09-09-1999").withLevelOfFriendship("10").withUnitNumber("#9-434").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")

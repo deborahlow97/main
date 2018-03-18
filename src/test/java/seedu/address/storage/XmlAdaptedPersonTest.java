@@ -24,7 +24,7 @@ public class XmlAdaptedPersonTest {
     private static final String INVALID_UNIT_NUMBER = " ";
     private static final String INVALID_BIRTHDAY = "example";
     private static final String INVALID_LEVEL_OF_FRIENDSHIP = "10a";
-    private static final String INVALID_CCA = "222";
+    private static final String INVALID_CCA = "222!@";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = BENSON.getName().toString();
