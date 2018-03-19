@@ -39,6 +39,7 @@ public class LevelOfFriendshipTest {
         assertFalse(LevelOfFriendship.isValidLevelOfFriendship("9*")); // '*' symbol
         assertFalse(LevelOfFriendship.isValidLevelOfFriendship("^")); // '^' symbol
         assertFalse(LevelOfFriendship.isValidLevelOfFriendship("0")); // invalid number
+        assertFalse(LevelOfFriendship.isValidLevelOfFriendship("1.1")); // number in decimal
 
         // valid level of friendship
         assertTrue(LevelOfFriendship.isValidLevelOfFriendship("1"));
