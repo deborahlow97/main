@@ -42,7 +42,7 @@ public class GuiTestAssert {
         assertEquals(expectedPerson.getName().fullName, actualCard.getName());
         assertEquals(expectedPerson.getPhone().value, actualCard.getPhone());
         assertEquals(expectedPerson.getBirthday().value, actualCard.getBirthday());
-        assertEquals(expectedPerson.getLevelOfFriendship().value, actualCard.getLevelOfFriendship());
+        assertLevelOfFriendshipEqual(expectedPerson, actualCard);
         assertEquals(expectedPerson.getUnitNumber().value, actualCard.getUnitNumber());
         assertEquals(expectedPerson.getCcas().stream().map(cca -> cca.ccaName).collect(Collectors.toList()),
                 actualCard.getCcas());
@@ -92,6 +92,22 @@ public class GuiTestAssert {
         expectedTags.forEach(tag ->
                 assertEquals(Arrays.asList(LABEL_DEFAULT_STYLE, getTagColorStyleFor(tag)),
                         actualCard.getTagStyleClasses(tag)));
+    }
+
+
+    /**
+     * Asserts that the level of friendship in {@code actualCard} matches all the tags in {@code expectedPerson} with
+     * the correct symbol.
+     */
+    private static void assertLevelOfFriendshipEqual(Person expectedPerson,
+                                                PersonCardHandle actualCard) {
+        String expectedLevelOfFriendship = expectedPerson.getLevelOfFriendship().value;
+        int levelOfFriendshipInIntegerForm = Integer.parseInt((expectedLevelOfFriendship));
+        String levelOfFriendshipSymbol = "";
+        for (int i = 0; i < levelOfFriendshipInIntegerForm; i++) {
+            levelOfFriendshipSymbol = levelOfFriendshipSymbol + '\u2665' + " ";
+        }
+        assertEquals(levelOfFriendshipSymbol, actualCard.getLevelOfFriendship());
     }
 
     /**

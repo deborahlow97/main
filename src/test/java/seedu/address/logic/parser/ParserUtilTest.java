@@ -274,7 +274,7 @@ public class ParserUtilTest {
     @Test
     public void parseCcas_collectionWithInvalidCcas_throwsIllegalValueException() throws Exception {
         thrown.expect(IllegalValueException.class);
-        ParserUtil.parseCcas(Arrays.asList(VALID_CCA_1, VALID_CCA_2));
+        ParserUtil.parseCcas(Arrays.asList(VALID_CCA_1, INVALID_CCA));
     }
 
     @Test

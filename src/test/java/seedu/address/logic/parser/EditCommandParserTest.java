@@ -113,12 +113,6 @@ public class EditCommandParserTest {
         // is tested at {@code parse_invalidValueFollowedByValidValue_success()}
         assertParseFailure(parser, "1" + PHONE_DESC_BOB + INVALID_PHONE_DESC, Phone.MESSAGE_PHONE_CONSTRAINTS);
 
-        // while parsing {@code PREFIX_CCA} alone will reset the ccas of the {@code Person} being edited,
-        // parsing it together with a valid cca results in error
-        assertParseFailure(parser, "1" + CCA_DESC_BADMINTON + CCA_DESC_DANCE + CCA_EMPTY, Cca.MESSAGE_CCA_CONSTRAINTS);
-        assertParseFailure(parser, "1" + CCA_DESC_DANCE + CCA_EMPTY + CCA_DESC_BADMINTON, Cca.MESSAGE_CCA_CONSTRAINTS);
-        assertParseFailure(parser, "1" + CCA_EMPTY + CCA_DESC_BADMINTON + CCA_DESC_DANCE, Cca.MESSAGE_CCA_CONSTRAINTS);
-
         // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
         // parsing it together with a valid tag results in error
         assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_DESC_HUSBAND + TAG_EMPTY, Tag.MESSAGE_TAG_CONSTRAINTS);
@@ -195,7 +189,7 @@ public class EditCommandParserTest {
 
         // ccas
         userInput = targetIndex.getOneBased() + CCA_DESC_DANCE;
-        descriptor = new EditPersonDescriptorBuilder().withTags(VALID_CCA_DANCE).build();
+        descriptor = new EditPersonDescriptorBuilder().withCcas(VALID_CCA_DANCE).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 

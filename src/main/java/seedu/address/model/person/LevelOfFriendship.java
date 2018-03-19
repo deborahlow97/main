@@ -50,21 +50,6 @@ public class LevelOfFriendship {
         }
     }
 
-    /**
-     * Takes in @param test representing the level of friendship value
-     * @return a number of hearts string.
-     */
-    public String getLevelOfFriendshipInSymbols(String test) {
-        if (isValidLevelOfFriendship(test)) {
-            levelOfFriendshipInIntegerForm = Integer.parseInt((test));
-            String heartString = "";
-            for (int i = 0; i < levelOfFriendshipInIntegerForm; i++) {
-                heartString = heartString + '\u2665' + " ";
-            }
-            return heartString;
-        }
-        return "";
-    }
 
     @Override
     public String toString() {

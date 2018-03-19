@@ -20,10 +20,10 @@ public class PersonBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
-    public static final String DEFAULT_BIRTHDAY = "12-11-2000";
-    public static final String DEFAULT_LEVEL_OF_FRIENDSHIP = "8";
-    public static final String DEFAULT_UNIT_NUMBER = "#08-111";
-    public static final String DEFAULT_CCAS = "surfing";
+    public static final String DEFAULT_BIRTHDAY = "01-01-1991";
+    public static final String DEFAULT_LEVEL_OF_FRIENDSHIP = "1";
+    public static final String DEFAULT_UNIT_NUMBER = "#12-21";
+    public static final String DEFAULT_CCAS = "hockey";
     public static final String DEFAULT_TAGS = "friends";
 
     private Name name;

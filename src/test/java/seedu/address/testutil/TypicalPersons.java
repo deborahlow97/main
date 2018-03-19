@@ -39,7 +39,8 @@ public class TypicalPersons {
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withBirthday("12/03/1994").withLevelOfFriendship("4").withUnitNumber("#03-033").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withBirthday("09-09-1999").withLevelOfFriendship("10").withUnitNumber("#9-434").build();
+            .withBirthday("09-09-1999").withLevelOfFriendship("10").withUnitNumber("#9-434")
+            .withCcas("modern dance").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withBirthday("10/10/1990").withLevelOfFriendship("3").withUnitNumber("#10-10").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
