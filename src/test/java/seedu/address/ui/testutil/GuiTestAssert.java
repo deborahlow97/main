@@ -27,8 +27,7 @@ public class GuiTestAssert {
         assertEquals(expectedCard.getUnitNumber(), actualCard.getUnitNumber());
         assertEquals(expectedCard.getName(), actualCard.getName());
         assertEquals(expectedCard.getPhone(), actualCard.getPhone());
-        assertEquals(expectedCard.changeLevelOfFriendshipToHeart(expectedCard.getLevelOfFriendship()),
-                actualCard.getLevelOfFriendship());
+        assertEquals(expectedCard.getLevelOfFriendship(), actualCard.getLevelOfFriendship());
         assertEquals(expectedCard.getCcas(), actualCard.getCcas());
         assertEquals(expectedCard.getTags(), actualCard.getTags());
         expectedCard.getTags().forEach(tag -> assertEquals(expectedCard.getTagStyleClasses(tag),
