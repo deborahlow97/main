@@ -8,11 +8,13 @@ import com.google.common.eventbus.Subscribe;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
@@ -27,7 +29,7 @@ import seedu.address.model.UserPrefs;
  * The Main Window. Provides the basic application layout containing
  * a menu bar and space where other JavaFX elements can be placed.
  */
-public class MainWindow extends UiPart<Stage> {
+public class MainWindow extends UiPart<Region> {
 
     private static final String FXML = "MainWindow.fxml";
 
@@ -74,7 +76,7 @@ public class MainWindow extends UiPart<Stage> {
         setTitle(this.config.getAppTitle());
         setWindowDefaultSize(prefs);
         Scene scene = new Scene(getRoot());
-        primaryStage.setScene(Scene);
+        primaryStage.setScene(scene);
         setAccelerators();
         registerAsAnEventHandler(this);
     }
