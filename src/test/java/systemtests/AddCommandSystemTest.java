@@ -174,12 +174,11 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         /* Case: filters the person list before adding -> added */
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
 
-
-        /* ------------------------ Perform add operation while a person card is selected --------------------------- */
         //TODO
+        /* ------------------------ Perform add operation while a person card is selected --------------------------- */
         /* Case: selects first card in the person list, add a person -> added, card selection remains unchanged */
-        //        selectPerson(Index.fromOneBased(1));
-        //        assertCommandSuccess(CARL);
+        //selectPerson(Index.fromOneBased(1));
+        //assertCommandSuccess(CARL);
 
         /* ----------------------------------- Perform invalid add operations --------------------------------------- */
 
@@ -198,7 +197,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         // "friends" is an existing cca used in the default model, see TypicalPersons#ALICE
         // This test will fail if a new cca that is not in the model is used, see the bug documented in
         // AddressBook#addPerson(Person)
-        command = PersonUtil.getAddCommand(IDA) + " " + PREFIX_CCA.getPrefix() + "badminton";
+        command = PersonUtil.getAddCommand(IDA) + " " + PREFIX_CCA.getPrefix() + "hockey";
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
 
         /* Case: missing name -> rejected */

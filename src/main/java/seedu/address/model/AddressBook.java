@@ -94,7 +94,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @throws DuplicatePersonException if an equivalent person already exists.
      */
     public void addPerson(Person p) throws DuplicatePersonException {
-        Person person = syncWithMasterTagList(p);
+        Person person = syncWithMasterCcaList(p);
+        person = syncWithMasterTagList(person);
         // TODO: the tags master list will be updated even though the below line fails.
         // This can cause the tags master list to have additional tags that are not tagged to any person
         // in the person list.
@@ -115,15 +116,26 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void updatePerson(Person target, Person editedPerson)
             throws DuplicatePersonException, PersonNotFoundException {
         requireNonNull(editedPerson);
-
-        Person syncedEditedPerson = syncWithMasterTagList(editedPerson);
+        Person syncedEditedPerson = syncWithMasterCcaList(editedPerson);
+        syncedEditedPerson = syncWithMasterTagList(syncedEditedPerson);
         // TODO: the tags master list will be updated even though the below line fails.
         // This can cause the tags master list to have additional tags that are not tagged to any person
         // in the person list.
         persons.setPerson(target, syncedEditedPerson);
+        removeUnusedCcas();
         removeUnusedTags();
     }
 
+    /**
+     * Removes all {@code Ccas}s that are not used by any {@code Person} in this {@code AddressBook}.
+     */
+    private void removeUnusedCcas() {
+        Set<Cca> ccasInPersons = persons.asObservableList().stream()
+                .map(Person::getCcas)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+        ccas.setCcas(ccasInPersons);
+    }
     /**
      * Removes all {@code Tag}s that are not used by any {@code Person} in this {@code AddressBook}.
      */
