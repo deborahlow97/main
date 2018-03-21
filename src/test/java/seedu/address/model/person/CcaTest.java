@@ -28,8 +28,10 @@ public class CcaTest {
         // invalid cca name
         assertFalse(Cca.isValidCcaName("!3")); // contains '!'
         assertFalse(Cca.isValidCcaName("abc%")); // contains '%'
+        assertFalse(Cca.isValidCcaName("abc-1")); // contains '-'
+        assertFalse(Cca.isValidCcaName("abc@@@1")); // contains '@'
 
-        // valid birthday
+        // valid cca name
         assertTrue(Cca.isValidCcaName("Hackathon")); // alphabets
         assertTrue(Cca.isValidCcaName("Walkathon 2018")); // using .alphanumeric with spaces
         assertTrue(Cca.isValidCcaName("Basketball")); // valid alphabets

@@ -30,9 +30,12 @@ public class BirthdayTest {
         assertFalse(Birthday.isValidBirthday(" ")); // spaces only
 
         // missing parts
-        assertFalse(Birthday.isValidBirthday("12- -1997")); // missing month part
-        assertFalse(Birthday.isValidBirthday("- -12-1998")); // missing date part
+        assertFalse(Birthday.isValidBirthday("12--1997")); // missing month part
+        assertFalse(Birthday.isValidBirthday("--12-1998")); // missing date part
+        assertFalse(Birthday.isValidBirthday("//12/1998")); // missing date part
         assertFalse(Birthday.isValidBirthday("12-12-")); // missing year part
+        assertFalse(Birthday.isValidBirthday("12/12/")); // missing year part
+
 
         // invalid parts
         assertFalse(Birthday.isValidBirthday("32-Jan-2000")); // invalid day
@@ -46,6 +49,7 @@ public class BirthdayTest {
         assertFalse(Birthday.isValidBirthday("31..01..2000")); // invalid birthday format
         assertFalse(Birthday.isValidBirthday("20--2-1997")); // invalid birthday format
         assertFalse(Birthday.isValidBirthday("20*2*1997")); // invalid symbols
+        assertFalse(Birthday.isValidBirthday("12 / 12 / 2012")); // contains spaces
 
         // valid birthday
         assertTrue(Birthday.isValidBirthday("01/01/2000"));
