@@ -150,7 +150,8 @@ public class XmlAdaptedPerson {
         }
         final UnitNumber unitNumber = new UnitNumber(this.unitNumber);
         final Set<Cca> ccas = new HashSet<>(personCcas);
-              //final Meet meetDate = new Meet(""); // TODO: To be fixed in later commit
+        //final Meet meetDate = new Meet("");
+        // TODO: To be fixed in later commit
         final Set<Tag> tags = new HashSet<>(personTags);
         return new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccas, meetDate, tags);
     }

@@ -57,7 +57,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             Set<Cca> ccaList = ParserUtil.parseCcas(argMultimap.getAllValues(PREFIX_CCA));
             Meet meetDate = new Meet("");
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-            Person person = new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccaList, meetDate, tagList);
+            Person person = new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccaList, meetDate,
+                    tagList);
             return new AddCommand(person);
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);
