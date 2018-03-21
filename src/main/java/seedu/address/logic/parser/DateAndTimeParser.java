@@ -18,7 +18,7 @@ public class DateAndTimeParser {
     private static boolean isRecurring;
     private static boolean isTimeInferred;
     /**
-     * Parses user input String specified{@code args} into LocalDateTime objects using Natural Language Parsing(NLP)
+     * Parses user input String specified{@code args} into LocalDateTime objects
      *
      * @return Empty Optional if args could not be parsed
      * @Disclaimer : The parser used is a dependency called 'natty' developed by 'Joe Stelmach'
