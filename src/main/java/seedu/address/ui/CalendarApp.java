@@ -29,8 +29,6 @@ public class CalendarApp extends UiPart<Region> {
 
         CalendarView calendarView = new CalendarView();
 
-
-
         calendarView.setRequestedTime(LocalTime.now());
         calendarView.setToday(LocalDate.now());
         calendarView.setTime(LocalTime.now());
@@ -40,54 +38,54 @@ public class CalendarApp extends UiPart<Region> {
     /**
      * Remove clutter from interface
      */
-    private void disableViews() {
-        calendarView.setShowAddCalendarButton(false);
-        calendarView.setShowSearchField(false);
-        calendarView.setShowSearchResultsTray(false);
-        calendarView.setShowPrintButton(false);
-        calendarView.showDayPage();
-    }
+//    private void disableViews() {
+//        calendarView.setShowAddCalendarButton(false);
+//        calendarView.setShowSearchField(false);
+//        calendarView.setShowSearchResultsTray(false);
+//        calendarView.setShowPrintButton(false);
+//        calendarView.showDayPage();
+//    }
+//
+//    /**
+//     * Changes calendar view accordingly
+//     */
+//    private void showPage(Character c) {
+//        switch (c) {
+//        case ('d'):
+//            calendarView.showDayPage();
+//            return;
+//        case ('w'):
+//            calendarView.showWeekPage();
+//            return;
+//        case ('m'):
+//            calendarView.showMonthPage();
+//            return;
+//        case ('y'):
+//            calendarView.showYearPage();
+//            return;
+//        default:
+//            assert (false);
+//        }
+//    }
+//
+//    private void updateReminderCalendar() {
+//        setTime();
+//        CalendarSource calendarSource = new CalendarSource("Reminders");
+//        Calendar birthdayss = new Calendar("Birthdays");
+//        Calendar holidays = new Calendar("Holidays");
+//
+//        holidays.setStyle(Style.STYLE2);
+//    }
+//
+//    private void updateBirthdayCalendar() {
+//        setTime();
+//        CalendarSource birthdays = new CalendarSource("Birthdays");
+//    }
 
-    /**
-     * Changes calendar view accordingly
-     */
-    private void showPage(Character c) {
-        switch (c) {
-        case ('d'):
-            calendarView.showDayPage();
-            return;
-        case ('w'):
-            calendarView.showWeekPage();
-            return;
-        case ('m'):
-            calendarView.showMonthPage();
-            return;
-        case ('y'):
-            calendarView.showYearPage();
-            return;
-        default:
-            assert (false);
-        }
-    }
-
-    private void updateReminderCalendar() {
-        setTime();
-        CalendarSource calendarSource = new CalendarSource("Reminders");
-        Calendar birthdayss = new Calendar("Birthdays");
-        Calendar holidays = new Calendar("Holidays");
-
-        holidays.setStyle(Style.STYLE2);
-    }
-
-    private void updateBirthdayCalendar() {
-        setTime();
-        CalendarSource birthdays = new CalendarSource("Birthdays");
-    }
-
-    private void setTime() {
-        calendarView.setToday(LocalDate.now());
-        calendarView.setTime(LocalTime.now());
-        calendarView.getCalendarSources().clear();
-    }
+//    private void setTime() {
+//        calendarView.setToday(LocalDate.now());
+//        calendarView.setTime(LocalTime.now());
+//        calendarView.getCalendarSources().clear();
+//    }
 
 }

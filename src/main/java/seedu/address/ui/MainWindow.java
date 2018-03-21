@@ -5,8 +5,10 @@ import java.util.logging.Logger;
 import com.calendarfx.view.CalendarView;
 import com.google.common.eventbus.Subscribe;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -60,8 +62,8 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane statusbarPlaceholder;
 
     public MainWindow(Stage primaryStage, Config config, UserPrefs prefs, Logic logic) {
-        super(FXML, primaryStage);
-
+        //super(FXML, primaryStage);
+        super(FXML);
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
@@ -69,9 +71,10 @@ public class MainWindow extends UiPart<Stage> {
         this.prefs = prefs;
 
         // Configure the UI
-        setTitle(config.getAppTitle());
+        setTitle(this.config.getAppTitle());
         setWindowDefaultSize(prefs);
-
+        Scene scene = new Scene(getRoot());
+        primaryStage.setScene(Scene);
         setAccelerators();
         registerAsAnEventHandler(this);
     }
