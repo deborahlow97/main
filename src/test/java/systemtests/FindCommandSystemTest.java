@@ -133,13 +133,13 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         assertSelectedCardUnchanged();
 
         /* Case: find unit number of person in address book -> 0 persons found */
-        command = FindCommand.COMMAND_WORD + " n/ " + DANIEL.getUnitNumber().value + "t/ ";
+        command = FindCommand.COMMAND_WORD + " n/ " + DANIEL.getUnitNumber().value + " t/ ";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find ccas of person in address book -> 0 persons found */
         List<Cca> ccas = new ArrayList<>(DANIEL.getCcas());
-        command = FindCommand.COMMAND_WORD + " n/" + ccas.get(0).ccaName + "t/ ";
+        command = FindCommand.COMMAND_WORD + " n/" + ccas.get(0).ccaName + " t/ ";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
