@@ -26,7 +26,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
     private final Label birthdayLabel;
     private final Label levelOfFriendshipLabel;
     private final Label unitNumberLabel;
-    private final List<Label> ccaLabels;
+    private final Label ccaLabel;
     private final List<Label> tagLabels;
 
     public PersonCardHandle(Node cardNode) {
@@ -38,14 +38,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
         this.phoneLabel = getChildNode(PHONE_FIELD_ID);
         this.levelOfFriendshipLabel = getChildNode(LEVEL_OF_FRIENDSHIP_FIELD_ID);
         this.unitNumberLabel = getChildNode(UNIT_NUMBER_FIELD_ID);
-
-        Region ccasContainer = getChildNode(CCAS_FIELD_ID);
-        this.ccaLabels = ccasContainer
-                .getChildrenUnmodifiable()
-                .stream()
-                .map(Label.class::cast)
-                .collect(Collectors.toList());
-
+        this.ccaLabel = getChildNode(CCAS_FIELD_ID);
         Region tagsContainer = getChildNode(TAGS_FIELD_ID);
         this.tagLabels = tagsContainer
                 .getChildrenUnmodifiable()
@@ -78,6 +71,9 @@ public class PersonCardHandle extends NodeHandle<Node> {
         return unitNumberLabel.getText();
     }
 
+    public String getCcas() {
+        return ccaLabel.getText().trim();
+    }
     /**
      * Takes in @param value representing the level of friendship value
      * @return a number of hearts string.
@@ -89,22 +85,6 @@ public class PersonCardHandle extends NodeHandle<Node> {
             heartString = heartString + '\u2665' + " ";
         }
         return heartString;
-    }
-
-    public List<String> getCcas() {
-        return ccaLabels
-                .stream()
-                .map(Label::getText)
-                .collect(Collectors.toList());
-    }
-
-    public List<String> getCcaStyleClasses(String cca) {
-        return ccaLabels
-                .stream()
-                .filter(label -> label.getText().equals(cca))
-                .map(Label::getStyleClass)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("No such cca."));
     }
 
     public List<String> getTags() {

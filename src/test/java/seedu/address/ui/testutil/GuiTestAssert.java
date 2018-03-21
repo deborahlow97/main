@@ -43,8 +43,9 @@ public class GuiTestAssert {
         assertEquals(expectedPerson.getBirthday().value, actualCard.getBirthday());
         assertLevelOfFriendshipEqual(expectedPerson, actualCard);
         assertEquals(expectedPerson.getUnitNumber().value, actualCard.getUnitNumber());
-        assertEquals(expectedPerson.getCcas().stream().map(cca -> cca.ccaName).collect(Collectors.toList()),
-                actualCard.getCcas());
+        List<String> ccaInArrayList = expectedPerson.getCcas().stream().map(cca -> cca.ccaName)
+                .collect(Collectors.toList());
+        assertEquals(getCcasInString(ccaInArrayList), actualCard.getCcas());
         assertTagsEqual(expectedPerson, actualCard);
     }
 
@@ -140,5 +141,18 @@ public class GuiTestAssert {
      */
     public static void assertResultMessage(ResultDisplayHandle resultDisplayHandle, String expected) {
         assertEquals(expected, resultDisplayHandle.getText());
+    }
+
+    /**
+     * Changing @param ccaInArrayList into a CCA string in desired format
+     * @return ccaInString
+     */
+    public static String getCcasInString(List<String> ccaInArrayList) {
+        String ccaInString = "";
+        for (String temp : ccaInArrayList) {
+            temp = "[" + temp + "] ";
+            ccaInString = ccaInString + temp;
+        }
+        return ccaInString.trim();
     }
 }

@@ -52,10 +52,10 @@ public class TypicalPersons {
             .withCcas("floorball").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
             .withBirthday("14/04/1994").withLevelOfFriendship("3").withUnitNumber("#4-44")
-            .withTags("girlfriend").build();
+            .withTags("colleagues").build();
     public static final Person JAKE = new PersonBuilder().withName("Jake Black").withPhone("8482131")
             .withBirthday("14/04/1995").withLevelOfFriendship("3").withUnitNumber("#4-45")
-            .withTags("boyfriend").build();
+            .build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)

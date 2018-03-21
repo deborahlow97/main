@@ -33,10 +33,10 @@ public class SampleDataUtil {
             new Person(new Name("David Li"), new Phone("91031282"), new Birthday("20-2-1995"),
                     new LevelOfFriendship("6"), new UnitNumber("#16-43"), getCcaSet(),
                 getTagSet("family")),
-            new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Birthday("irfan@example.com"),
+            new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Birthday("01-01-1999"),
                 new LevelOfFriendship("7"), new UnitNumber("#16-41"), getCcaSet(),
                 getTagSet("classmates")),
-            new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Birthday("royb@example.com"),
+            new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Birthday("2/04/1995"),
                 new LevelOfFriendship("10"), new UnitNumber("#6-43"), getCcaSet("Computing club", "Anime Club"),
                 getTagSet("colleagues"))
         };
