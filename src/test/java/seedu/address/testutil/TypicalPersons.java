@@ -44,7 +44,8 @@ public class TypicalPersons {
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withBirthday("10/10/1990").withLevelOfFriendship("3").withUnitNumber("#10-10").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withBirthday("11/11/2000").withLevelOfFriendship("8").withUnitNumber("#2-65").build();
+            .withBirthday("11/11/2000").withLevelOfFriendship("8").withUnitNumber("#2-65")
+            .withMeetDate("14/04/2018").build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
