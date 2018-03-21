@@ -166,7 +166,8 @@ public class AddressBook implements ReadOnlyAddressBook {
         personCcas.forEach(cca -> correctCcaReferences.add(masterCcaObjects.get(cca)));
         return new Person(
                 person.getName(), person.getPhone(), person.getBirthday(),
-                person.getLevelOfFriendship(),  person.getUnitNumber(), correctCcaReferences, person.getTags());
+                person.getLevelOfFriendship(),  person.getUnitNumber(), correctCcaReferences, person.getMeetDate(),
+                person.getTags());
     }
 
     /**
@@ -188,7 +189,8 @@ public class AddressBook implements ReadOnlyAddressBook {
         personTags.forEach(tag -> correctTagReferences.add(masterTagObjects.get(tag)));
         return new Person(
                 person.getName(), person.getPhone(), person.getBirthday(),
-                person.getLevelOfFriendship(),  person.getUnitNumber(), person.getCcas(), person.geetMeetDate(), correctTagReferences);
+                person.getLevelOfFriendship(),  person.getUnitNumber(), person.getCcas(), person.getMeetDate(),
+                correctTagReferences);
     }
 
     /**
