@@ -8,6 +8,7 @@
         <levelOfFriendship isPrivate="false">10</levelOfFriendship>
         <unitNumber isPrivate="false">#1-20</unitNumber>
         <cca isPrivate="false">basketball</cca>
+        <meetDate isPrivate="false">15/03/2018</meetDate>
     </persons>
     <!-- Person with invalid phone field -->
     <persons>
@@ -17,5 +18,6 @@
         <levelOfFriendship isPrivate="false">9</levelOfFriendship>
         <unitNumber isPrivate="false">#2-201</unitNumber>
         <cca isPrivate="false">badminton</cca>
+        <meetDate isPrivate="false">15/03/2018</meetDate>
     </persons>
 </addressbook>

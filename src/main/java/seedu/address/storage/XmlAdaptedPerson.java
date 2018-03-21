@@ -36,6 +36,8 @@ public class XmlAdaptedPerson {
     private String levelOfFriendship;
     @XmlElement(required = true)
     private String unitNumber;
+    @XmlElement(required = true)
+    private String meetDate;
 
     @XmlElement
     private List<XmlAdaptedCca> ccas = new ArrayList<>();
@@ -82,6 +84,7 @@ public class XmlAdaptedPerson {
             ccas.add(new XmlAdaptedCca(cca));
         }
         tagged = new ArrayList<>();
+        meetDate = source.getMeetDate().value;
         for (Tag tag : source.getTags()) {
             tagged.add(new XmlAdaptedTag(tag));
         }
@@ -136,6 +139,7 @@ public class XmlAdaptedPerson {
         }
         final LevelOfFriendship levelOfFriendship = new LevelOfFriendship(this.levelOfFriendship);
 
+        final Meet meetDate = new Meet(this.meetDate);
 
         if (this.unitNumber == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
