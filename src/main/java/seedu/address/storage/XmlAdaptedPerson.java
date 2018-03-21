@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
+import seedu.address.model.person.Meet;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -144,10 +145,10 @@ public class XmlAdaptedPerson {
             throw new IllegalValueException(UnitNumber.MESSAGE_UNIT_NUMBER_CONSTRAINTS);
         }
         final UnitNumber unitNumber = new UnitNumber(this.unitNumber);
-
         final Set<Cca> ccas = new HashSet<>(personCcas);
+              final Meet meetDate = new Meet(""); // TODO: To be fixed in later commit
         final Set<Tag> tags = new HashSet<>(personTags);
-        return new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccas, tags);
+        return new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccas, meetDate, tags);
     }
 
     @Override

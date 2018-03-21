@@ -24,6 +24,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
+import seedu.address.model.person.Meet;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -116,11 +117,12 @@ public class EditCommand extends UndoableCommand {
         LevelOfFriendship updatedLevelOfFriendship = editPersonDescriptor.getLevelOfFriendship()
                 .orElse(personToEdit.getLevelOfFriendship());
         UnitNumber updatedUnitNumber = editPersonDescriptor.getUnitNumber().orElse(personToEdit.getUnitNumber());
+        Meet updatedMeetDate = personToEdit.getMeetDate();
         Set<Cca> updatedCcas = editPersonDescriptor.getCcas().orElse(personToEdit.getCcas());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedBirthday, updatedLevelOfFriendship, updatedUnitNumber,
-                updatedCcas, updatedTags);
+                updatedCcas, updatedMeetDate, updatedTags);
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.util.Set;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
+import seedu.address.model.person.Meet;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -24,6 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_LEVEL_OF_FRIENDSHIP = "1";
     public static final String DEFAULT_UNIT_NUMBER = "#12-21";
     public static final String DEFAULT_CCAS = "hockey";
+    public static final String DEFAULT_DATE = "";
     public static final String DEFAULT_TAGS = "friends";
 
     private Name name;
@@ -32,6 +34,7 @@ public class PersonBuilder {
     private LevelOfFriendship levelOfFriendship;
     private UnitNumber unitNumber;
     private Set<Cca> ccas;
+    private Meet meetDate;
     private Set<Tag> tags;
 
     public PersonBuilder() {
@@ -41,6 +44,7 @@ public class PersonBuilder {
         levelOfFriendship = new LevelOfFriendship(DEFAULT_LEVEL_OF_FRIENDSHIP);
         unitNumber = new UnitNumber(DEFAULT_UNIT_NUMBER);
         ccas = SampleDataUtil.getCcaSet(DEFAULT_CCAS);
+        meetDate = new Meet(DEFAULT_DATE);
         tags = SampleDataUtil.getTagSet(DEFAULT_TAGS);
     }
 
@@ -54,6 +58,7 @@ public class PersonBuilder {
         levelOfFriendship = personToCopy.getLevelOfFriendship();
         unitNumber = personToCopy.getUnitNumber();
         ccas = new HashSet<>(personToCopy.getCcas());
+        meetDate = personToCopy.getMeetDate();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -114,7 +119,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccas, tags);
+        return new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccas, meetDate, tags);
     }
 
 }

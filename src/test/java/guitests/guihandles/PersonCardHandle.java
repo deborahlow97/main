@@ -19,6 +19,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
     private static final String UNIT_NUMBER_FIELD_ID = "#unitNumber";
     private static final String CCAS_FIELD_ID = "#ccas";
     private static final String TAGS_FIELD_ID = "#tags";
+    private static final String MEET_FIELD_ID = "#meet";
 
     private final Label idLabel;
     private final Label nameLabel;

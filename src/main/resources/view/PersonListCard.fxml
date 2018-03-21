@@ -33,6 +33,7 @@
       <Label fx:id="levelOfFriendship" styleClass="cell_small_label" text="\$levelOfFriendship" />
       <Label fx:id="unitNumber" styleClass="cell_small_label" text="\$unitNumber" />
       <Label fx:id="ccas" styleClass="cell_small_label" text="\$ccas" />
+      <Label fx:id="meetDate" styleClass="cell_small_label" text="\$meetDate" />
     </VBox>
   </GridPane>
 </HBox>

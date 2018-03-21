@@ -8,6 +8,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
+import seedu.address.model.person.Meet;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -19,26 +20,29 @@ import seedu.address.model.tag.Tag;
  * Contains utility methods for populating {@code CollegeZone} with sample data.
  */
 public class SampleDataUtil {
+
+    public static final Meet EMPTY_MEET_DATE = new Meet("");
+
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Birthday("1-01-1997"),
                 new LevelOfFriendship("5"), new UnitNumber("#06-40"), getCcaSet("Basketball"),
-                getTagSet("friends")),
+                EMPTY_MEET_DATE, getTagSet("friends")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Birthday("21-2-1990"),
                 new LevelOfFriendship("9"), new UnitNumber("#07-18"), getCcaSet(),
-                    getTagSet("colleagues", "friends")),
+                EMPTY_MEET_DATE, getTagSet("colleagues", "friends")),
             new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Birthday("5/9/1980"),
                 new LevelOfFriendship("1"), new UnitNumber("#11-04"), getCcaSet("Swimming"),
-                    getTagSet("neighbours")),
+                EMPTY_MEET_DATE, getTagSet("neighbours")),
             new Person(new Name("David Li"), new Phone("91031282"), new Birthday("20-2-1995"),
-                    new LevelOfFriendship("6"), new UnitNumber("#16-43"), getCcaSet(),
-                getTagSet("family")),
+                new LevelOfFriendship("6"), new UnitNumber("#16-43"), getCcaSet(),
+                EMPTY_MEET_DATE, getTagSet("family")),
             new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Birthday("01-01-1999"),
                 new LevelOfFriendship("7"), new UnitNumber("#16-41"), getCcaSet(),
-                getTagSet("classmates")),
+                EMPTY_MEET_DATE, getTagSet("classmates")),
             new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Birthday("2/04/1995"),
                 new LevelOfFriendship("10"), new UnitNumber("#6-43"), getCcaSet("Computing club", "Anime Club"),
-                getTagSet("colleagues"))
+                EMPTY_MEET_DATE, getTagSet("colleagues"))
         };
     }
 

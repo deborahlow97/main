@@ -188,8 +188,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         personTags.forEach(tag -> correctTagReferences.add(masterTagObjects.get(tag)));
         return new Person(
                 person.getName(), person.getPhone(), person.getBirthday(),
-                person.getLevelOfFriendship(),  person.getUnitNumber(), person.getCcas(), correctTagReferences);
-
+                person.getLevelOfFriendship(),  person.getUnitNumber(), person.getCcas(), person.geetMeetDate(), correctTagReferences);
     }
 
     /**
@@ -241,8 +240,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
         Person newPerson =
                 new Person(person.getName(), person.getPhone(), person.getBirthday(), person.getLevelOfFriendship(),
-                        person.getUnitNumber(), person.getCcas(), newTags);
-
+                        person.getUnitNumber(), person.getCcas(), person.getMeetDate(), newTags);
         try {
             updatePerson(person, newPerson);
         } catch (DuplicatePersonException dpe) {

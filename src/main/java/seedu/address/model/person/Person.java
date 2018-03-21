@@ -20,22 +20,24 @@ public class Person {
     private final Birthday birthday;
     private final LevelOfFriendship levelOfFriendship;
     private final UnitNumber unitNumber;
-
+    private final Meet meetDate;
     private final UniqueCcaList ccas;
     private final UniqueTagList tags;
 
     /**
      * Every field must be present and not null.
      */
+
     public Person(Name name, Phone phone, Birthday birthday, LevelOfFriendship levelOfFriendship,
-                  UnitNumber unitNumber, Set<Cca> ccas, Set<Tag> tags) {
+                  UnitNumber unitNumber, Set<Cca> ccas, Meet meetDate, Set<Tag> tags) {
         requireAllNonNull(name, phone, birthday, levelOfFriendship, unitNumber, ccas, tags);
         this.name = name;
         this.phone = phone;
         this.birthday = birthday;
         this.levelOfFriendship = levelOfFriendship;
         this.unitNumber = unitNumber;
-        // protect internal tags from changes in the arg list
+        this.meetDate = meetDate;
+        // protect internal tags and ccas from changes in the arg list
         this.ccas = new UniqueCcaList(ccas);
         this.tags = new UniqueTagList(tags);
     }
@@ -66,6 +68,8 @@ public class Person {
     public Set<Cca> getCcas() {
         return Collections.unmodifiableSet(ccas.toSet());
     }
+
+    public Meet getMeetDate() { return meetDate; }
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.

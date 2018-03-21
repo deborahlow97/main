@@ -18,6 +18,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Cca;
 import seedu.address.model.person.LevelOfFriendship;
+import seedu.address.model.person.Meet;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -54,10 +55,9 @@ public class AddCommandParser implements Parser<AddCommand> {
             LevelOfFriendship levelOfFriendship = ParserUtil.parseLevelOfFriendship(argMultimap
                     .getValue(PREFIX_LEVEL_OF_FRIENDSHIP)).get();
             Set<Cca> ccaList = ParserUtil.parseCcas(argMultimap.getAllValues(PREFIX_CCA));
+            Meet meetDate = new Meet("");
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-
-            Person person = new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccaList, tagList);
-
+            Person person = new Person(name, phone, birthday, levelOfFriendship, unitNumber, ccaList, meetDate, tagList);
             return new AddCommand(person);
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);
