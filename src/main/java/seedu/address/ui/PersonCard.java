@@ -58,11 +58,10 @@ public class PersonCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         birthday.setText(person.getBirthday().value);
-        //levelOfFriendship.setText(person.getLevelOfFriendship().value);
         levelOfFriendship.setText(changeLevelOfFriendshipToHeart(person.getLevelOfFriendship().value));
         unitNumber.setText(person.getUnitNumber().value);
         ccas.setText(getCcasInString(person.getCcas()));
-
+        meetDate.setText(person.getMeetDate().value);
         initTags(person);
     }
 

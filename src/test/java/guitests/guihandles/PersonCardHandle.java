@@ -19,7 +19,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
     private static final String UNIT_NUMBER_FIELD_ID = "#unitNumber";
     private static final String CCAS_FIELD_ID = "#ccas";
     private static final String TAGS_FIELD_ID = "#tags";
-    private static final String MEET_FIELD_ID = "#meet";
+    private static final String MEET_FIELD_ID = "#meetDate";
 
     private final Label idLabel;
     private final Label nameLabel;
@@ -28,6 +28,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
     private final Label levelOfFriendshipLabel;
     private final Label unitNumberLabel;
     private final Label ccaLabel;
+    private final Label meetLabel;
     private final List<Label> tagLabels;
 
     public PersonCardHandle(Node cardNode) {
@@ -40,6 +41,7 @@ public class PersonCardHandle extends NodeHandle<Node> {
         this.levelOfFriendshipLabel = getChildNode(LEVEL_OF_FRIENDSHIP_FIELD_ID);
         this.unitNumberLabel = getChildNode(UNIT_NUMBER_FIELD_ID);
         this.ccaLabel = getChildNode(CCAS_FIELD_ID);
+        this.meetLabel = getChildNode(MEET_FIELD_ID);
         Region tagsContainer = getChildNode(TAGS_FIELD_ID);
         this.tagLabels = tagsContainer
                 .getChildrenUnmodifiable()
@@ -86,6 +88,10 @@ public class PersonCardHandle extends NodeHandle<Node> {
             heartString = heartString + '\u2665' + " ";
         }
         return heartString;
+    }
+
+    public String getMeetDate() {
+        return meetLabel.getText();
     }
 
     public List<String> getTags() {
