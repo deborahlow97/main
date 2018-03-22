@@ -478,8 +478,28 @@ image::RCPersonClass.JPG[width="450"]
 
 === Suggested: Set Reminders
 As RC4 residents have events, classes and meetings to go to at a certain date and time, we decided on implementing a reminder feature to allow users to add reminders in CollegeZone. +
+Reminder commands are undoable and redoable for the benefit users to redo and undo a command they did or did not intend to change.
 
-*
+*Reminder features:* +
+
+* Adding a reminder to the Calendar
+* Editing a reminder on the Calendar
+* Deleting a reminder on the Calendar
+* Acknowledging a reminder on the Calendar
+
+*Reminder objects will consist of 3 attributes :* +
+1. the date, time and recurrence of reminder +
+2. the level of urgency of reminder +
+3. the reminder text content
+
+The reminders will be stored in an ArrayList of all the reminder objects. Each reminder will have specific positive integer index number. +
+A reminder will be *green* until it is due. +
+A reminder will turn and remain orange for 24 hours if it's due. +
+This is when user can start acknowledging a reminder on the Calendar.  +
+After acknowledging it, it is removed from calendar. +
+If it's overdue and not acknowledged, it will turn Grey. +
+
+Bottom Panel: Number of orange reminders +
 
 
 == Documentation
