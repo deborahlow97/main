@@ -103,25 +103,47 @@ Edits the phone number and level of friendship of the 1st person to be `91234567
 * `edit 2 n/Betsy Crower t/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-=== Locating persons by name: `find`
+=== Locating persons by name: `find` `[since v1.1]`
 
 Finds persons whose names contain any of the given keywords. +
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find [n/KEYWORDS] [t/]` or `find [n/] [t/KEYWORDS]`
 
 ****
 * The search is case insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
+* Only the name or tag is searched at a single time
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Searching both name and tag at the same time is not possible
+****
+
+Examples:
+
+* `find n/John t/` +
+Returns `john` and `John Doe`
+* `find n/Betsy Tim John t/` +
+Returns any person having names `Betsy`, `Tim`, or `John`
+*  `find n/ t/friends` +
+Returns any person having tags `friends`
+
+=== Seeking the Resident Assistant of a person : `seek` `[coming in v2.0]`
+Seek the Resident Assistant (RA) of the person whose name contains any of the given keywords. +
+Format: `seek NAME`
+
+****
+* The search is case insensitive. e.g `hans` will match `Hans`
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* Only the name is searched at a single time
+* Only full words will be matched e.g. `Han` will not match `Hans`
+* Resident Assistant (RA) of the person's name matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber's RA`, `Bo Yang's RA`
 ****
 
 Examples:
 
 * `find John` +
-Returns `john` and `John Doe`
-* `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+Returns `John's RA`
+* `find Betsy` +
+Returns `Betsy's RA`
 
 === Deleting a person : `delete`
 
