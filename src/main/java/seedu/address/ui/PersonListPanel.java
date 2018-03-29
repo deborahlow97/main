@@ -27,18 +27,26 @@ public class PersonListPanel extends UiPart<Region> {
     @FXML
     private ListView<PersonCard> personListView;
 
-    public PersonListPanel(ObservableList<Person> personList) {
+    @FXML
+    private ListView<GoalCard> goalListView;
+
+    public PersonListPanel(ObservableList<Person> personList, ObservableList<Person> goalList) {
         super(FXML);
-        setConnections(personList);
+        setConnections(personList, goalList);
         registerAsAnEventHandler(this);
     }
 
-    private void setConnections(ObservableList<Person> personList) {
-        ObservableList<PersonCard> mappedList = EasyBind.map(
+    private void setConnections(ObservableList<Person> personList, ObservableList<Person> goalList) {
+        ObservableList<PersonCard> mappedListPerson = EasyBind.map(
                 personList, (person) -> new PersonCard(person, personList.indexOf(person) + 1));
-        personListView.setItems(mappedList);
+        personListView.setItems(mappedListPerson);
         personListView.setCellFactory(listView -> new PersonListViewCell());
         setEventHandlerForSelectionChangeEvent();
+        ObservableList<GoalCard> mappedListGoal = EasyBind.map(
+                goalList, (person) -> new GoalCard(person, goalList.indexOf(person) + 1));
+        goalListView.setItems(mappedListGoal);
+        goalListView.setCellFactory(listView -> new GoalListViewCell());
+
     }
 
     private void setEventHandlerForSelectionChangeEvent() {
@@ -61,6 +69,16 @@ public class PersonListPanel extends UiPart<Region> {
         });
     }
 
+    /**
+     * Scrolls to the {@code GoalCard} at the {@code index} and selects it.
+     */
+    private void scrollToGoal(int index) {
+        Platform.runLater(() -> {
+            goalListView.scrollTo(index);
+            goalListView.getSelectionModel().clearAndSelect(index);
+        });
+    }
+
     @Subscribe
     private void handleJumpToListRequestEvent(JumpToListRequestEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
@@ -74,6 +92,24 @@ public class PersonListPanel extends UiPart<Region> {
 
         @Override
         protected void updateItem(PersonCard person, boolean empty) {
+            super.updateItem(person, empty);
+
+            if (empty || person == null) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                setGraphic(person.getRoot());
+            }
+        }
+    }
+
+    /**
+     * Custom {@code ListCell} that displays the graphics of a {@code GoalCard}.
+     */
+    class GoalListViewCell extends ListCell<GoalCard> {
+
+        @Override
+        protected void updateItem(GoalCard person, boolean empty) {
             super.updateItem(person, empty);
 
             if (empty || person == null) {
