@@ -1,5 +1,6 @@
 package seedu.address.model;
 
+import java.util.HashMap;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -82,4 +83,12 @@ public interface Model {
     /** Deletes the given goal. */
     void deleteGoal(Goal target) throws GoalNotFoundException;
 
+    /** Returns the theme hash map */
+    HashMap<String, String> getThemeHashMap ();
+
+    /** Sets the theme of CollegeZone. */
+    void setTheme(String themeColour);
+
+    /**Returns the current theme of CollegeZone. */
+    String getCurrentTheme();
 }

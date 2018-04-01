@@ -34,6 +34,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     private final UniqueCcaList ccas;
     private final UniqueTagList tags;
     private final UniqueGoalList goals;
+    private final HashMap<String, String> themes;
 
     /*
      * The 'unusual' code block below is an non-static initialization block, sometimes used to avoid duplication
@@ -47,6 +48,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         ccas = new UniqueCcaList();
         tags = new UniqueTagList();
         goals = new UniqueGoalList();
+        themes = new HashMap<>();
     }
 
     public AddressBook() {}
@@ -56,6 +58,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
+        initialiseThemeColour();
         resetData(toBeCopied);
     }
 
@@ -142,7 +145,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         removeUnusedCcas();
         removeUnusedTags();
     }
-
+    //@@author deborahlow97
     /**
      * Removes all {@code Ccas}s that are not used by any {@code Person} in this {@code AddressBook}.
      */
@@ -153,6 +156,7 @@ public class AddressBook implements ReadOnlyAddressBook {
                 .collect(Collectors.toSet());
         ccas.setCcas(ccasInPersons);
     }
+    //@@author
     /**
      * Removes all {@code Tag}s that are not used by any {@code Person} in this {@code AddressBook}.
      */
@@ -164,6 +168,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         tags.setTags(tagsInPersons);
     }
 
+    //@@author deborahlow97
     /**
      *  Updates the master cca list to include ccas in {@code person} that are not in the list.
      *  @return a copy of this {@code person} such that every cca in this person points to a Cca object in the master
@@ -187,6 +192,7 @@ public class AddressBook implements ReadOnlyAddressBook {
                 person.getTags());
     }
 
+    //@@author
     /**
      *  Updates the master tag list to include tags in {@code person} that are not in the list.
      *  @return a copy of this {@code person} such that every tag in this person points to a Tag object in the master
@@ -223,7 +229,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     //// cca-level operations
-
+    //@@author deborahlow97
     public void addCca(Cca cca) throws UniqueCcaList.DuplicateCcaException {
         ccas.add(cca);
     }
@@ -309,6 +315,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     //// util methods
 
+    //@@author
     @Override
     public String toString() {
         return persons.asObservableList().size() + " persons, " + ccas.asObservableList().size()
@@ -349,5 +356,19 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(persons, ccas, tags);
+    }
+
+    //@@author deborahlow97
+    //// theme operations
+    /**
+     * Initialises the dark and light themes in CollegeZone.
+     */
+    private void initialiseThemeColour() {
+        themes.put("light", "LightTheme.css");
+        themes.put("dark", "DarkTheme.css");
+    }
+
+    HashMap<String, String> getThemeHashMap() {
+        return themes;
     }
 }

@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.HashMap;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -26,7 +27,7 @@ import seedu.address.model.tag.Tag;
  */
 public class ModelManager extends ComponentManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
-
+    private static String currentTheme;
     private final AddressBook addressBook;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Goal> filteredGoals;
@@ -160,5 +161,20 @@ public class ModelManager extends ComponentManager implements Model {
 
         addressBook.updateGoal(target, editedGoal);
         indicateAddressBookChanged();
+    }
+
+    @Override
+    public void setTheme(String themeColour) {
+        currentTheme = themeColour;
+    }
+
+    @Override
+    public String getCurrentTheme() {
+        return currentTheme;
+    }
+
+    @Override
+    public HashMap<String, String> getThemeHashMap() {
+        return this.addressBook.getThemeHashMap();
     }
 }
