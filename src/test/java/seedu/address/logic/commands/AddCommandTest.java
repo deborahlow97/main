@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.function.Predicate;
 
 import org.junit.Rule;
@@ -169,6 +170,23 @@ public class AddCommandTest {
         public void updateGoal(Goal target, Goal editedGoal)
                 throws DuplicateGoalException {
             fail("This method should not be called.");
+        }
+
+        @Override
+        public HashMap<String, String> getThemeHashMap() {
+            fail("This method should not be called.");
+            return null;
+        }
+
+        @Override
+        public void setTheme(String themeColour) {
+            fail("This method should not be called.");
+        }
+
+        @Override
+        public String getCurrentTheme() {
+            fail("This method should not be called.");
+            return null;
         }
     }
 
