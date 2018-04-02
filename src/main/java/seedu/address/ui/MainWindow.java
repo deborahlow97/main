@@ -17,8 +17,11 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.ExitAppRequestEvent;
 import seedu.address.commons.events.ui.ShowHelpRequestEvent;
+import seedu.address.commons.events.ui.ThemeSwitchRequestEvent;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
+
+import static seedu.address.logic.commands.ThemeCommand.VIEW_PATH;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -69,6 +72,7 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setTitle(config.getAppTitle());
         setWindowDefaultSize(prefs);
+        setThemeColour(prefs);
         setAccelerators();
         registerAsAnEventHandler(this);
     }
@@ -168,6 +172,16 @@ public class MainWindow extends UiPart<Stage> {
         helpWindow.show();
     }
 
+    /**
+     * Changes the theme colour.
+     */
+    public void handleChangeTheme(String theme) {
+        if (getRoot().getStylesheets().size() > 1) {
+            getRoot().getStylesheets().remove(1);
+        }
+        getRoot().getStylesheets().add(VIEW_PATH + theme);
+    }
+
     void show() {
         primaryStage.show();
     }
@@ -189,4 +203,12 @@ public class MainWindow extends UiPart<Stage> {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         handleHelp();
     }
+
+    //@@author deborahlow97
+    @Subscribe
+    private handleChangeThemeEvent(ThemeSwitchRequestEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        handleChangeTheme();
+    }
+
 }
