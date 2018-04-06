@@ -38,7 +38,7 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private CalendarPanel calendarPanel;
-    private PersonListPanel personListPanel;
+    private ListPanel listPanel;
     private Config config;
     private UserPrefs prefs;
 
@@ -121,8 +121,8 @@ public class MainWindow extends UiPart<Stage> {
         calendarPanel = new CalendarPanel(logic.getFilteredReminderList(), logic.getFilteredPersonList());
         calendarPlaceholder.getChildren().add(calendarPanel.getRoot());
 
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList(), logic.getFilteredGoalList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        listPanel = new ListPanel(logic.getFilteredPersonList(), logic.getFilteredGoalList());
+        personListPanelPlaceholder.getChildren().add(listPanel.getRoot());
 
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -184,8 +184,8 @@ public class MainWindow extends UiPart<Stage> {
         raise(new ExitAppRequestEvent());
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return this.personListPanel;
+    public ListPanel getListPanel() {
+        return this.listPanel;
     }
 
     @Subscribe

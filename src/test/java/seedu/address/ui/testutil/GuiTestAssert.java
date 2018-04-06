@@ -1,5 +1,7 @@
 package seedu.address.ui.testutil;
 
+import static guitests.guihandles.GoalCardHandle.getGoalCompletionStarSymbol;
+import static guitests.guihandles.PersonCardHandle.getLevelOfFriendshipToHeart;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -7,9 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import guitests.guihandles.GoalCardHandle;
 import guitests.guihandles.PersonCardHandle;
 import guitests.guihandles.PersonListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
+import seedu.address.model.goal.Goal;
 import seedu.address.model.person.Person;
 import seedu.address.ui.PersonCard;
 
@@ -48,6 +52,17 @@ public class GuiTestAssert {
         assertEquals(getCcasInString(ccaInArrayList), actualCard.getCcas());
         assertEquals("Meet Date: " + expectedPerson.getMeetDate().value, actualCard.getMeetDate());
         assertTagsEqual(expectedPerson, actualCard);
+    }
+
+    /**
+     * Asserts that {@code actualCard} displays the details of {@code expectedPerson}.
+     */
+    public static void assertCardDisplaysGoal(Goal expectedGoal, GoalCardHandle actualCard) {
+        assertEquals(expectedGoal.getGoalText().value, actualCard.getGoalText());
+        assertEquals(expectedGoal.getCompletion().value, actualCard.getCompletion());
+        assertEquals(expectedGoal.getStartDateTime().value, actualCard.getGoalStartDateTime());
+        assertImportanceEqual(expectedGoal, actualCard);
+        assertEquals(expectedGoal.getEndDateTime().value, actualCard.getGoalEndDateTime());
     }
 
     //@@author deborahlow97
@@ -111,18 +126,23 @@ public class GuiTestAssert {
 
 
     /**
-     * Asserts that the level of friendship in {@code actualCard} matches all the tags in {@code expectedPerson} with
+     * Asserts that the level of friendship in {@code actualCard} matches all the labels in {@code expectedPerson} with
      * the correct symbol.
      */
     private static void assertLevelOfFriendshipEqual(Person expectedPerson,
                                                 PersonCardHandle actualCard) {
-        String expectedLevelOfFriendship = expectedPerson.getLevelOfFriendship().value;
-        int levelOfFriendshipInIntegerForm = Integer.parseInt((expectedLevelOfFriendship));
-        String levelOfFriendshipSymbol = "";
-        for (int i = 0; i < levelOfFriendshipInIntegerForm; i++) {
-            levelOfFriendshipSymbol = levelOfFriendshipSymbol + '\u2665' + " ";
-        }
-        assertEquals(levelOfFriendshipSymbol, actualCard.getLevelOfFriendship());
+        String expectedLevelOfFriendship = getLevelOfFriendshipToHeart(expectedPerson.getLevelOfFriendship().value);
+        assertEquals(expectedLevelOfFriendship, actualCard.getLevelOfFriendship());
+    }
+
+    /**
+     * Asserts that the goal importance in {@code actualCard} matches all the labels in {@code expectedPerson} with
+     * the correct symbol.
+     */
+    private static void assertImportanceEqual(Goal expectedGoal,
+                                                     GoalCardHandle actualCard) {
+        String expectedImportance = getGoalCompletionStarSymbol(expectedGoal.getImportance().value);
+        assertEquals(expectedImportance, actualCard.getImportance());
     }
 
     //@@author

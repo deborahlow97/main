@@ -2694,7 +2694,7 @@ public class GoalCard extends UiPart<Region> {
     -fx-text-fill: black;
 }
 
-#filterField, #personListPanel, #personWebpage {
+#filterField, #listPanel, #personWebpage {
     -fx-effect: innershadow(gaussian, white, 10, 0, 0, 0);
 }
 

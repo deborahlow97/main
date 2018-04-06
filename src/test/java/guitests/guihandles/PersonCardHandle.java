@@ -1,11 +1,14 @@
 package guitests.guihandles;
 
+import static seedu.address.ui.PersonCard.changeLevelOfFriendshipToHeart;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
+
 
 /**
  * Provides a handle to a person card in the person list panel.
@@ -81,12 +84,9 @@ public class PersonCardHandle extends NodeHandle<Node> {
      * Takes in @param value representing the level of friendship value
      * @return a number of hearts string.
      */
-    public String changeLevelOfFriendshipToHeart(String value) {
-        int intValue = Integer.parseInt(value);
-        String heartString = "";
-        for (int i = 0; i < intValue; i++) {
-            heartString = heartString + '\u2665' + " ";
-        }
+    public static String getLevelOfFriendshipToHeart(String value) {
+        String heartString = changeLevelOfFriendshipToHeart(value);
+
         return heartString;
     }
 

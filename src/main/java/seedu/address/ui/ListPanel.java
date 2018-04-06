@@ -21,16 +21,16 @@ import seedu.address.model.person.Person;
 /**
  * Panel containing the list of persons.
  */
-public class PersonListPanel extends UiPart<Region> {
-    private static final String FXML = "PersonListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
+public class ListPanel extends UiPart<Region> {
+    private static final String FXML = "ListPanel.fxml";
+    private final Logger logger = LogsCenter.getLogger(ListPanel.class);
 
     @FXML
     private ListView<PersonCard> personListView;
     @FXML
     private ListView<GoalCard> goalListView;
 
-    public PersonListPanel(ObservableList<Person> personList, ObservableList<Goal> goalList) {
+    public ListPanel(ObservableList<Person> personList, ObservableList<Goal> goalList) {
         super(FXML);
         setConnections(personList, goalList);
         registerAsAnEventHandler(this);
