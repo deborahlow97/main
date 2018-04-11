@@ -6,12 +6,14 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.testutil.GoalUtil.getGoalCompletion;
 import static seedu.address.ui.StatusBarFooter.SYNC_STATUS_INITIAL;
 import static seedu.address.ui.StatusBarFooter.SYNC_STATUS_UPDATED;
+import static seedu.address.ui.testutil.GuiTestAssert.assertGoalListMatching;
 import static seedu.address.ui.testutil.GuiTestAssert.assertListMatching;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import guitests.guihandles.GoalListPanelHandle;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -154,6 +156,40 @@ public abstract class AddressBookSystemTest {
         assertEquals(0, getModel().getAddressBook().getPersonList().size());
     }
 
+    //@@author deborahlow97
+    /**
+     * Deletes all goals in the CollegeZone.
+     */
+    protected void deleteAllGoals() {
+        executeCommand(ClearCommand.COMMAND_WORD);
+        assertEquals(0, getModel().getAddressBook().getGoalList().size());
+    }
+
+    /**
+     * Displays all goals in the CollegeZone.
+     */
+    protected void showAllGoals() {
+        assertEquals(getModel().getAddressBook().getPersonList().size(), getModel().getFilteredPersonList().size());
+    }
+
+    public GoalListPanelHandle getGoalListPanel() {
+        return mainWindowHandle.getGoalListPanel();
+    }
+    /**
+     * Asserts that the {@code CommandBox} displays {@code expectedCommandInput}, the {@code ResultDisplay} displays
+     * {@code expectedResultMessage}, the model and storage contains the same goal objects as {@code expectedModel}
+     * and the person list panel displays the goals in the model correctly.
+     */
+    protected void assertApplicationDisplaysExpectedGoals(String expectedCommandInput, String expectedResultMessage,
+                                                     Model expectedModel) {
+        assertEquals(expectedCommandInput, getCommandBox().getInput());
+        assertEquals(expectedResultMessage, getResultDisplay().getText());
+        assertEquals(expectedModel, getModel());
+        assertEquals(expectedModel.getAddressBook(), testApp.readStorageAddressBook());
+        assertGoalListMatching(getGoalListPanel(), expectedModel.getFilteredGoalList());
+    }
+
+    //@@author
     /**
      * Asserts that the {@code CommandBox} displays {@code expectedCommandInput}, the {@code ResultDisplay} displays
      * {@code expectedResultMessage}, the model and storage contains the same person objects as {@code expectedModel}

@@ -2,14 +2,18 @@ package seedu.address.ui.testutil;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static seedu.address.ui.GoalCard.changeImportanceToStar;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import guitests.guihandles.GoalCardHandle;
+import guitests.guihandles.GoalListPanelHandle;
 import guitests.guihandles.PersonCardHandle;
 import guitests.guihandles.PersonListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
+import seedu.address.model.goal.Goal;
 import seedu.address.model.person.Person;
 import seedu.address.ui.PersonCard;
 
@@ -171,5 +175,57 @@ public class GuiTestAssert {
             ccaInString = ccaInString + temp;
         }
         return ccaInString.trim();
+    }
+
+    /**
+     * Asserts that {@code actualCard} displays the same values as {@code expectedCard}.
+     */
+    public static void assertGoalCardEquals(GoalCardHandle expectedCard, GoalCardHandle actualCard) {
+        assertEquals(expectedCard.getId(), actualCard.getId());
+        assertEquals(expectedCard.getGoalText(), actualCard.getGoalText());
+        assertEquals(expectedCard.getCompletion(), actualCard.getCompletion());
+        assertEquals(expectedCard.getEndDateTime(), actualCard.getEndDateTime());
+        assertEquals(expectedCard.getImportance(), actualCard.getImportance());
+        assertEquals(expectedCard.getStartDateTime(), actualCard.getStartDateTime());
+    }
+
+    /**
+     * Asserts that {@code actualCard} displays the details of {@code expectedGoal}.
+     */
+    public static void assertCardDisplaysGoal(Goal expectedGoal, GoalCardHandle actualCard) {
+        assertEquals(expectedGoal.getGoalText().value, actualCard.getGoalText());
+        assertEquals(expectedGoal.getCompletion().value, actualCard.getCompletion());
+        assertEquals(expectedGoal.getStartDateTime().value, actualCard.getStartDateTime());
+        assertImportanceEqual(expectedGoal, actualCard);
+        assertEquals(expectedGoal.getEndDateTime().value, actualCard.getEndDateTime());
+    }
+
+    /**
+     * Asserts that the list in {@code goalListPanelHandle} displays the details of {@code goals} correctly and
+     * in the correct order.
+     */
+    public static void assertGoalListMatching(GoalListPanelHandle goalListPanelHandle, Goal... goals) {
+        for (int i = 0; i < goals.length; i++) {
+            assertCardDisplaysGoal(goals[i], goalListPanelHandle.getGoalCardHandle(i));
+        }
+    }
+
+    /**
+     * Asserts that the list in {@code personListPanelHandle} displays the details of {@code goals} correctly and
+     * in the correct order.
+     */
+    public static void assertGoalListMatching(GoalListPanelHandle goalListPanelHandle, List<Goal> goals) {
+        assertGoalListMatching(goalListPanelHandle, goals.toArray(new Goal[0]));
+    }
+
+    /**
+     * Asserts that the level of friendship in {@code actualCard} matches all the tags in {@code expectedPerson} with
+     * the correct symbol.
+     */
+    private static void assertImportanceEqual(Goal expectedGoal,
+                                                     GoalCardHandle actualCard) {
+        String expectedImportance = changeImportanceToStar(expectedGoal.getImportance().value);
+
+        assertEquals(expectedImportance, actualCard.getImportance());
     }
 }

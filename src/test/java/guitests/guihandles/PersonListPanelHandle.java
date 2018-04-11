@@ -131,4 +131,5 @@ public class PersonListPanelHandle extends NodeHandle<ListView<PersonCard>> {
     public int getListSize() {
         return getRootNode().getItems().size();
     }
+
 }
