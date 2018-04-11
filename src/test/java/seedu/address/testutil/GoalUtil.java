@@ -38,7 +38,7 @@ public class GoalUtil {
         String completionStatus;
         for (int i = 0; i < totalGoal; i++) {
             completionStatus = goalList.get(i).getCompletion().value;
-            totalGoalCompleted += isCompletedGoal(completionStatus);
+            totalGoalCompleted += goalCompletedValue(completionStatus);
         }
         int percentageGoalCompletion = (int) (((float) totalGoalCompleted / totalGoal) * PERCENTAGE_KEY_NUMBER);
         return percentageGoalCompletion;
@@ -47,9 +47,9 @@ public class GoalUtil {
     /**
      * @param completionStatus gives a String that should be either "true" or "false", indicating if the goal is
      * completed.
-     * @return true or false
+     * @return 0 or 1
      */
-    private static int isCompletedGoal(String completionStatus) {
+    private static int goalCompletedValue(String completionStatus) {
         int valueToAdd;
         if (completionStatus.equals("true")) {
             valueToAdd = 1;
