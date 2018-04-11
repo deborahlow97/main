@@ -44,7 +44,7 @@ public class CompleteGoalCommandTest {
         Goal lastGoal = model.getFilteredGoalList().get(indexLastGoal.getZeroBased());
 
         GoalBuilder goalInList = new GoalBuilder(lastGoal);
-        Goal completedGoal = goalInList.withCompletion(VALID_GOAL_COMPLETION_D)
+        Goal completedGoal = goalInList.withCompletion(false)
                 .withEndDateTime(VALID_GOAL_END_DATE_TIME_STRING_D).build();
 
         CompleteGoalDescriptor descriptor = new CompleteGoalDescriptorBuilder().withCompletion(VALID_GOAL_COMPLETION_D)
