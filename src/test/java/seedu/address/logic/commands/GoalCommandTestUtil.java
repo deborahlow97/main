@@ -78,7 +78,7 @@ public class GoalCommandTestUtil {
     public static final CompleteGoalCommand.CompleteGoalDescriptor DESC_GOAL_COMPLETED_D;
 
     public static final OngoingGoalCommand.OngoingGoalDescriptor DESC_GOAL_COMPLETED_E;
-    public static final OngoingGoalCommand.OngoingGoalDescriptor DESC_GOAL_COMPLETED_F;
+
     static {
         VALID_GOAL_START_DATE_TIME_A = getLocalDateTimeFromString(VALID_GOAL_START_DATE_TIME_STRING_A);
         VALID_GOAL_START_DATE_TIME_B = getLocalDateTimeFromString(VALID_GOAL_START_DATE_TIME_STRING_B);
@@ -92,8 +92,6 @@ public class GoalCommandTestUtil {
         DESC_GOAL_COMPLETED_D = new CompleteGoalDescriptorBuilder().withCompletion(VALID_GOAL_COMPLETION_D)
                 .withEndDateTime(VALID_GOAL_END_DATE_TIME_STRING_D).build();
         DESC_GOAL_COMPLETED_E = new OngoingGoalDescriptorBuilder().withCompletion(VALID_GOAL_COMPLETION_E)
-                .withEndDateTime(VALID_GOAL_END_DATE_TIME).build();
-        DESC_GOAL_COMPLETED_F = new OngoingGoalDescriptorBuilder().withCompletion(VALID_GOAL_COMPLETION_F)
                 .withEndDateTime(VALID_GOAL_END_DATE_TIME).build();
     }
 
