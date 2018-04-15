@@ -146,7 +146,7 @@ Shows a list of all students and their details that you added into _CollegeZone_
 ```
 
 [discrete]
-=== Editing a student : `edit` or `e` [Since v1.2]
+=== Editing a student : `edit` or `e`
 
 If you added a student detail incorrectly, you can edit an existing student's details in _CollegeZone_. +
 
@@ -175,7 +175,7 @@ Edits the phone number and level of friendship of the 1st student to be `9123456
 Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
 
 [discrete]
-=== Locating students by name or tag: `find` or `f` [Since v1.1]
+=== Locating students by name or tag: `find` or `f`
 
 _CollegeZone_ lets you find students whose names or tags contain any of the given keywords. +
 
@@ -212,7 +212,7 @@ Returns any student having tags `friends`
 
 // tag::seek[]
 [discrete]
-=== Seeking the Resident Assistant(s) of a student : `seek` [Since v1.3]
+=== Seeking the Resident Assistant(s) of a student : `seek`
 Seek the Resident Assistant(s) (RA) of the student(s) whose name contains any of the given keywords. +
 *_Formats:_*
 ```java
@@ -297,7 +297,7 @@ Selects the 1st student in the results of the `find` command.
 
 //tag::meet[]
 
-==== Meeting a student : `meet` or `m` [Since v1.3]
+==== Meeting a student : `meet` or `m`
 
 
 Arranges a meetup with the student identified by the index number used in the last student listing. +
@@ -322,7 +322,7 @@ Sets up a meeting with the 1st student on the 14th of March, 2018 in your Calend
 
 // tag::rate[]
 [discrete]
-=== Rating feature : `rate` or `rt` [Since v1.4]
+=== Rating feature : `rate` or `rt`
 
 Rates an existing student in _CollegeZone_. +
 
@@ -350,7 +350,7 @@ Rates the level of friendship of the 1st student to be `5`.
 Rates the level of friendship of the 1st and 3rd student to be `5`.
 
 [discrete]
-=== Show level of friendship feature : `show` or `sh` [Since v1.5]
+=== Show level of friendship feature : `show` or `sh`
 
 Shows the level of friendship of the student(s) whose level of friendship contains any of the given input values. +
 
@@ -378,7 +378,7 @@ Returns Students with Level of Friendship value `1` and Students with Level of F
 
 // tag::sort[]
 [discrete]
-=== Sort RC4 Students List: `sort [INDEX_TYPE]' [Since v1.5]
+=== Sort RC4 Students List: `sort [INDEX_TYPE]'
 
 Sorts the RC4 Students List according to the input index. There are three different sorting types available.
 
@@ -408,7 +408,7 @@ Returns `A sorted list of RC4 students according to their level of friendship`
 You might be wondering what else you can do with the calendar. The Reminder features listed below will allow you to set reminders for events, important dates or simply to-do tasks that will be reflected in the calendar for easy reference!
 
 [discrete]
-=== Adding a reminder: `+reminder` or `+r` or `addreminder` [Since v1.4]
+=== Adding a reminder: `+reminder` or `+r` or `addreminder`
 
 You can try setting a reminder into the calendar in _CollegeZone_ by referring to the instructions below. +
 
@@ -454,7 +454,7 @@ Figure below portrays what should be seen after the command is executed correctl
 image::addReminder.PNG[width="1500"]
 
 [discrete]
-=== Deleting a reminder: `-reminder` or `-r` or `deletereminder` [Since v1.4]
+=== Deleting a reminder: `-reminder` or `-r` or `deletereminder`
 
 If you made a mistake or have reminders that are already due, you can also delete it away from the calendar by referring to the instructions below.
 
@@ -509,7 +509,7 @@ image::delReminder.PNG[width="1500"]
 
 //tag::goalfeatures[]
 [discrete]
-=== Adding a goal: `+goal` or `+g` or `addgoal` [Since v1.3]
+=== Adding a goal: `+goal` or `+g` or `addgoal`
 Currently, your goal page is empty! Try adding a goal entry that you have into _CollegeZone_ using the `+goal`, `+g` or `addgoal` command. The new goal added will be reflected in _CollegeZone_. +
 
 *_Formats:_*
@@ -538,7 +538,7 @@ The figure below portrays what should be seen after the command is executed corr
 image::AddGoal.PNG[width="1000"]
 
 [discrete]
-=== Sorting goals: `sortgoal` or `sgoal` [Since v1.5]
+=== Sorting goals: `sortgoal` or `sgoal`
 
 It is a hassle to locate the goals you're interested in if you have too many goals in _CollegeZone_. Try sorting the goals that you have using the `sortgoal` or `sgoal` command. +
 
@@ -573,7 +573,7 @@ The figure below portrays what should be seen after the command is executed corr
 image::SortGoal.PNG[width="1000"]
 
 [discrete]
-=== Editing a goal: `~goal` or `~g` or `editgoal` [Since v1.4]
+=== Editing a goal: `~goal` or `~g` or `editgoal`
 If you've added a goal entry incorrectly, try using the `~goal`, `~g` or `editgoal` command to edit the goals you have. +
 
 *_Formats:_*
